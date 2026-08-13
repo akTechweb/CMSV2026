@@ -346,9 +346,6 @@ The Doctor module supports the clinical workflow from appointment queue through 
 
 ![Downloadable Consultation Report](docs/screenshots/doctor/06-consultation-pdf.png)
 
-## Patient History — Search
-
-![Patient History — Search](docs/screenshots/doctor/07-patient-history-search.png)
 
 ## Patient History — Laboratory Results
 
@@ -391,17 +388,15 @@ The screenshots in this section are the **actual Lab Technician application scre
 
 ![Enter Laboratory Result](docs/screenshots/lab/03-enter-result.jpeg)
 
-## Laboratory Billing — Unbilled Requests
-
-![Laboratory Billing — Unbilled Requests](docs/screenshots/lab/04-billing-unbilled.jpeg)
 
 ## Laboratory Billing — Bill Detail / Payment Status
 
 ![Laboratory Billing — Bill Detail / Payment Status](docs/screenshots/lab/06-billing-detail.jpeg)
 
-## Completed Reports
 
-![Completed Reports](docs/screenshots/lab/07-completed-reports.jpeg)
+## Laboratory Report Detail
+
+![Laboratory Report Detail](docs/screenshots/lab/07-report-detail.jpeg)
 
 
 
