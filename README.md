@@ -148,9 +148,6 @@ The platform provides dedicated experiences for:
 
 The application uses a shared login flow followed by role-specific access and dashboards.
 
-## Authentication
-
-![Authentication](docs/screenshots/shared/authentication.png)
 
 ---
 
