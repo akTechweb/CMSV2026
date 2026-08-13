@@ -182,18 +182,11 @@ The Receptionist module manages the front-desk workflow from patient registratio
 
 ![Printable Invoice](docs/screenshots/receptionist/13-printable-invoice.png)
 
-## Reports Dashboard
-
-![Reports Dashboard](docs/screenshots/receptionist/14-reports-dashboard.png)
 
 ## Patient Visits Log
 
 ![Patient Visits Log](docs/screenshots/receptionist/15-patient-visits.png)
 
-
-## Patients Directory — Edit & Audit
-
-![Patients Directory — Edit & Audit](docs/screenshots/receptionist/17-patients-edit-audit.png)
 
 ### Receptionist workflow
 
