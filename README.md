@@ -534,7 +534,7 @@ CMSV2026/
 
 ---
 
-# Local Development
+## Local Development
 
 ## Prerequisites
 
@@ -578,7 +578,7 @@ Configure the frontend API URL to match the backend launch URL.
 
 ---
 
-# API Documentation
+## API Documentation
 
 The backend exposes REST endpoints for the application's business modules and is documented through Swagger/OpenAPI when the API is running.
 
@@ -592,7 +592,7 @@ Use the actual launch port defined by the project rather than hard-coding a prod
 
 ---
 
-# Engineering Highlights
+## Engineering Highlights
 
 ### 1. Multi-role application architecture
 
@@ -638,7 +638,7 @@ This makes the project representative of a business workflow spanning multiple f
 
 ---
 
-# Project Scope
+## Project Scope
 
 | Area | Scope |
 |---|---:|
@@ -651,26 +651,9 @@ This makes the project representative of a business workflow spanning multiple f
 | API endpoints | **37+** |
 | Report types | **6** |
 
----
 
-# Security & Public Repository Checklist
 
-Before making the repository public or keeping it public:
-
-- [ ] Remove database passwords from tracked configuration
-- [ ] Remove SMTP passwords / app passwords
-- [ ] Rotate credentials that were previously committed
-- [ ] Use environment variables or .NET User Secrets
-- [ ] Add local/development configuration to `.gitignore`
-- [ ] Remove generated folders such as `node_modules`, `bin`, `obj`, `.vs`, and build output
-- [ ] Review Git history for previously committed secrets
-- [ ] Enable GitHub secret scanning / push protection where available
-
-> **Never commit production credentials, database passwords, API keys, SMTP credentials, access tokens, or other secrets.**
-
----
-
-# Portfolio Summary
+## Portfolio Summary
 
 InfinityCoderzz CMS V2026 demonstrates full-stack engineering across:
 
@@ -691,27 +674,9 @@ The project is intended to demonstrate the ability to design and implement a **n
 
 ---
 
-# Screenshots
 
-All module screenshots are stored under:
 
-```text
-docs/screenshots/
-```
-
-and referenced using standard GitHub-compatible relative Markdown paths.
-
-The repository includes screenshots for:
-
-- Authentication
-- Receptionist
-- Doctor
-- Laboratory
-- Pharmacy
-
----
-
-# Author
+## Author
 
 ## InfinityCoderzz CMS V2026
 
