@@ -92,7 +92,7 @@ The project materials document **4 core modules, 45+ application screens, 37+ AP
 └──────────────────────┬──────────────────────┘
                        ▼
 ┌─────────────────────────────────────────────┐
-│             Repository Layer               │
+│             Repository Layer                │
 │           Data Access / Dapper              │
 └──────────────────────┬──────────────────────┘
                        ▼
