@@ -305,9 +305,6 @@ reporting, and inventory/audit logging.
 
 ![Medicine Dispensing — Core Flow](docs/screenshots/pharmacy/07-medicine-dispensing-core-flow.png)
 
-## Dispensing --- Atomic SQL Transaction
-
-![Dispensing — Atomic SQL Transaction](docs/screenshots/pharmacy/08-atomic-dispensing-transaction.png)
 
 ## Dispensing History & OTC Billing
 
