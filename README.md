@@ -158,45 +158,17 @@ The application uses a shared login flow followed by role-specific access and da
 
 The Receptionist module manages the front-desk workflow from patient registration and appointment scheduling through billing, invoices, visits, reports, and patient-directory operations.
 
-## Dashboard
 
-![Receptionist Dashboard](docs/screenshots/receptionist/01-dashboard.png)
 
 ## Dashboard — Quick Patient Search
 
 ![Dashboard — Quick Patient Search](docs/screenshots/receptionist/02-quick-patient-search.png)
 
-## Book Appointment — Find Patient
-
-![Book Appointment — Find Patient](docs/screenshots/receptionist/03-find-patient.png)
 
 ## Book Appointment — Choose Slot
 
 ![Book Appointment — Choose Slot](docs/screenshots/receptionist/04-choose-slot.png)
 
-## Appointment Booked Confirmation
-
-![Appointment Booked Confirmation](docs/screenshots/receptionist/05-appointment-confirmation.png)
-
-## Register Patient — Personal Details
-
-![Register Patient — Personal Details](docs/screenshots/receptionist/06-registration-personal.png)
-
-## Register Patient — Contact Details
-
-![Register Patient — Contact Details](docs/screenshots/receptionist/07-registration-contact.png)
-
-## Registration Confirmation
-
-![Registration Confirmation](docs/screenshots/receptionist/08-registration-confirmation.png)
-
-## Book Appointment for New Patient
-
-![Book Appointment for New Patient](docs/screenshots/receptionist/09-new-patient-appointment.png)
-
-## Second Appointment Booked
-
-![Second Appointment Booked](docs/screenshots/receptionist/10-second-appointment.png)
 
 ## Create Bill from Appointment
 
