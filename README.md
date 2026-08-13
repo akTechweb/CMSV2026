@@ -279,9 +279,6 @@ The Pharmacy module manages medication operations from medicine catalogue and ba
 
 ![Medicine Dispensing — Core Flow](docs/screenshots/pharmacy/07-medicine-dispensing-core-flow.png)
 
-## Dispensing — Atomic SQL Transaction
-
-![Dispensing — Atomic SQL Transaction](docs/screenshots/pharmacy/08-atomic-dispensing-transaction.png)
 
 ## Dispensing History & OTC Billing
 
@@ -343,7 +340,7 @@ The Pharmacy workflow includes inventory and audit logging for operational trace
 
 ---
 
-# Reporting & Analytics
+## Reporting & Analytics
 
 The project includes role-specific operational reporting and dashboard visualization.
 
