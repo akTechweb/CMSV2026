@@ -1,0 +1,35 @@
+# Angular
+node_modules/
+dist/
+.angular/
+
+# ASP.NET Core
+bin/
+obj/
+
+# Visual Studio / VS Code
+.vs/
+.vscode/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# User-specific files
+*.user
+*.suo
+
+# Logs
+*.log
+
+
+# ASP.NET configuration / connection strings
+**/appsettings.json
+**/appsettings.Development.json
+**/appsettings.Production.jsonbin/
+obj/
+node_modules/
+.vs/
+*.user
+**/cache/
