@@ -1,244 +1,259 @@
-# InfinityCoderzz CMS — Clinic Management System
+# InfinityCoderzz CMS --- Clinic Management System
 
-> A full-stack, role-based Clinic Management System connecting Reception, Doctor, Laboratory, and Pharmacy workflows.
+> A full-stack clinic management platform connecting **Receptionist,
+> Doctor, Laboratory, and Pharmacy** workflows in one system.
 
-## 📌 Project at a Glance
+## 🚀 Project Overview
 
-InfinityCoderzz CMS brings four operational areas into one connected workflow:
+InfinityCoderzz CMS is a role-based healthcare operations platform
+covering patient registration, appointments, clinical consultation,
+laboratory processing, prescriptions, pharmacy inventory, FEFO
+dispensing, billing, PDF documents, reporting, and auditability.
 
-```text
-Receptionist → Doctor → Laboratory
-                     ↓
-                  Pharmacy
-                     ↓
-              Billing / Reports
+### Core modules
+
+  -----------------------------------------------------------------------
+  Module                              Scope
+  ----------------------------------- -----------------------------------
+  🛎️ Receptionist                     Registration, appointments,
+                                      billing, reports, visits, patient
+                                      directory
+
+  🩺 Doctor                           Appointment queue, consultation,
+                                      lab orders, prescriptions, reports,
+                                      history
+
+  🧪 Laboratory                       Pending tests, result entry, lab
+                                      billing, completed reports, patient
+                                      search
+
+  💊 Pharmacy                         Medicines, stock, prescriptions,
+                                      FEFO dispensing, billing, reports,
+                                      logs
+  -----------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+## 🔄 End-to-End Workflow
+
+``` text
+Patient Registration
+        ↓
+Appointment Booking
+        ↓
+Doctor Consultation
+   ┌────┴───────────┐
+   ↓                ↓
+Lab Test Order    Prescription
+   ↓                ↓
+Lab Result       Pharmacy Dispensing
+   └────┬───────────┘
+        ↓
+     Billing
+        ↓
+Reports / History / Audit
 ```
 
-| Module | Screens documented | Key workflows |
-|---|---:|---|
-| 🛎️ Receptionist | 17 | Patient registration, appointments, billing, reports, visits, patient directory |
-| 🩺 Doctor | 8 | Appointment queue, consultation, lab orders, prescriptions, reports, history |
-| 🧪 Laboratory | 10 | Pending tests, result entry, billing, completed reports, patient search |
-| 💊 Pharmacy | 10 sub-modules / multiple UI states | Medicines, stock, prescriptions, FEFO dispensing, billing, reports, audit/inventory |
+------------------------------------------------------------------------
 
-The module presentations supplied with the project document 17 Receptionist screens, 8 Doctor screens, 10 Laboratory screens, and 10 Pharmacy sub-modules. fileciteturn3file3 fileciteturn3file4 fileciteturn3file5
+# 🔐 Authentication & Role-Based Access
 
----
+The application uses role-based access for the operational users. The
+shared authentication screen is shown below.
 
-# 🧭 End-to-End Workflow
+`<img src="docs/screenshots/shared/authentication.png" alt="Authentication" width="100%">`{=html}
 
-```text
-┌──────────────────┐
-│   RECEPTIONIST   │
-│ Register Patient │
-│ Book Appointment │
-│ Billing          │
-└────────┬─────────┘
-         ↓
-┌──────────────────┐
-│      DOCTOR      │
-│ Consultation     │
-│ Lab Orders       │
-│ Prescription     │
-└───────┬───┬──────┘
-        │   │
-   Lab  │   │ Prescription
-        ↓   ↓
-┌──────────┐ ┌────────────┐
-│   LAB    │ │  PHARMACY  │
-│ Results  │ │ FEFO       │
-│ Billing  │ │ Dispensing  │
-└────┬─────┘ │ Billing    │
-     │       └─────┬──────┘
-     └───────┬─────┘
-             ↓
-       Reports / History
-```
+**Roles:** Receptionist · Doctor · Lab Technician / Lab Admin ·
+Pharmacist
 
----
-
-# 🔐 Shared Authentication
-
-The application uses a shared, role-aware login flow. The Pharmacy architecture documentation describes session-based authentication and role validation before redirecting the user to the appropriate dashboard. fileciteturn3file5
-
-![Shared Role-Based Login](docs/screenshots/shared/login.png)
-
----
+------------------------------------------------------------------------
 
 # 🛎️ Receptionist Module
 
-**17 documented screens · `/reception`**
+The Receptionist module covers the complete front-desk workflow from
+patient registration and appointment scheduling through billing,
+reports, visits, and patient-directory management.
 
-The complete Receptionist screenshot sequence is included below. The dedicated Receptionist module presentation explicitly labels the workflow as 17 steps. fileciteturn3file3
+### Complete Receptionist Screens
 
-<details open>
-<summary><strong>View all 17 Receptionist screens</strong></summary>
+## Receptionist Dashboard
 
-### 01 — Dashboard
-![Receptionist Dashboard](docs/screenshots/receptionist/01-dashboard.png)
+`<img src="docs/screenshots/receptionist/01-dashboard.png" alt="Receptionist Dashboard" width="100%">`{=html}
 
-### 02 — Quick Patient Search
-![Quick Patient Search](docs/screenshots/receptionist/02-quick-patient-search.png)
+## Dashboard --- Quick Patient Search
 
-### 03 — Find Patient for Appointment
-![Find Patient](docs/screenshots/receptionist/03-find-patient.png)
+`<img src="docs/screenshots/receptionist/02-dashboard-quick-patient-search.png" alt="Dashboard — Quick Patient Search" width="100%">`{=html}
 
-### 04 — Choose Appointment Slot
-![Choose Slot](docs/screenshots/receptionist/04-choose-slot.png)
+## Book Appointment --- Find Patient
 
-### 05 — Appointment Booked Confirmation
-![Appointment Confirmation](docs/screenshots/receptionist/05-appointment-confirmation.png)
+`<img src="docs/screenshots/receptionist/03-book-appointment-find-patient.png" alt="Book Appointment — Find Patient" width="100%">`{=html}
 
-### 06 — Patient Registration: Personal Details
-![Registration Personal Details](docs/screenshots/receptionist/06-registration-personal.png)
+## Book Appointment --- Choose Slot
 
-### 07 — Patient Registration: Contact Details
-![Registration Contact Details](docs/screenshots/receptionist/07-registration-contact.png)
+`<img src="docs/screenshots/receptionist/04-book-appointment-choose-slot.png" alt="Book Appointment — Choose Slot" width="100%">`{=html}
 
-### 08 — Registration Confirmation
-![Registration Confirmation](docs/screenshots/receptionist/08-registration-confirmation.png)
+## Appointment Booked Confirmation
 
-### 09 — Appointment for New Patient
-![New Patient Appointment](docs/screenshots/receptionist/09-new-patient-appointment.png)
+`<img src="docs/screenshots/receptionist/05-appointment-booked-confirmation.png" alt="Appointment Booked Confirmation" width="100%">`{=html}
 
-### 10 — Second Appointment Booked
-![Second Appointment](docs/screenshots/receptionist/10-second-appointment.png)
+## Register Patient --- Personal Details
 
-### 11 — Create Bill from Appointment
-![Create Bill](docs/screenshots/receptionist/11-create-bill.png)
+`<img src="docs/screenshots/receptionist/06-register-patient-personal-details.png" alt="Register Patient — Personal Details" width="100%">`{=html}
 
-### 12 — Bill Details & Payment History
-![Bill Details](docs/screenshots/receptionist/12-bill-payment-history.png)
+## Register Patient --- Contact Details
 
-### 13 — Printable Invoice
-![Printable Invoice](docs/screenshots/receptionist/13-printable-invoice.png)
+`<img src="docs/screenshots/receptionist/07-register-patient-contact-details.png" alt="Register Patient — Contact Details" width="100%">`{=html}
 
-### 14 — Reports Dashboard
-![Reports Dashboard](docs/screenshots/receptionist/14-reports-dashboard.png)
+## Registration Confirmation
 
-### 15 — Patient Visits Log
-![Patient Visits](docs/screenshots/receptionist/15-patient-visits.png)
+`<img src="docs/screenshots/receptionist/08-registration-confirmation.png" alt="Registration Confirmation" width="100%">`{=html}
 
-### 16 — Patients Directory
-![Patients Directory](docs/screenshots/receptionist/16-patients-directory.png)
+## Book Appointment for New Patient
 
-### 17 — Patient Edit & Audit
-![Patient Edit and Audit](docs/screenshots/receptionist/17-patients-edit-audit.png)
+`<img src="docs/screenshots/receptionist/09-book-appointment-new-patient.png" alt="Book Appointment for New Patient" width="100%">`{=html}
 
-</details>
+## Second Appointment Booked
 
-### Receptionist workflow
+`<img src="docs/screenshots/receptionist/10-second-appointment-booked.png" alt="Second Appointment Booked" width="100%">`{=html}
 
-```text
-Register Patient
-      ↓
-Book Appointment
-      ↓
-Appointment Queue
-      ↓
-Create Bill
-      ↓
-Payment / Invoice
-      ↓
-Reports / Visits / Patient Directory
+## Create Bill from Appointment
+
+`<img src="docs/screenshots/receptionist/11-create-bill-from-appointment.png" alt="Create Bill from Appointment" width="100%">`{=html}
+
+## Bill Details & Payment History
+
+`<img src="docs/screenshots/receptionist/12-bill-details-payment-history.png" alt="Bill Details & Payment History" width="100%">`{=html}
+
+## Printable Invoice
+
+`<img src="docs/screenshots/receptionist/13-printable-invoice.png" alt="Printable Invoice" width="100%">`{=html}
+
+## Reports Dashboard
+
+`<img src="docs/screenshots/receptionist/14-reports-dashboard.png" alt="Reports Dashboard" width="100%">`{=html}
+
+## Patient Visits Log
+
+`<img src="docs/screenshots/receptionist/15-patient-visits-log.png" alt="Patient Visits Log" width="100%">`{=html}
+
+## Patients Directory
+
+`<img src="docs/screenshots/receptionist/16-patients-directory.png" alt="Patients Directory" width="100%">`{=html}
+
+## Patients Directory --- Edit & Audit
+
+`<img src="docs/screenshots/receptionist/17-patients-directory-edit-audit.png" alt="Patients Directory — Edit & Audit" width="100%">`{=html}
+
+### Receptionist Workflow
+
+``` text
+Register Patient → Book Appointment → Manage Visits → Create Bill → Invoice → Reports / Patient Directory
 ```
 
----
+------------------------------------------------------------------------
 
 # 🩺 Doctor Module
 
-**8 documented screens · `/doctor`**
+The Doctor module covers appointment management, patient intake,
+consultation, laboratory orders, prescriptions, consultation reports,
+and patient history.
 
-The Doctor presentation documents an eight-step workflow from dashboard and appointment queue through consultation, lab/prescription entry, summary, PDF report, and patient history. fileciteturn3file4
+### Complete Doctor Screens
 
-<details open>
-<summary><strong>View all 8 Doctor screens</strong></summary>
+## Doctor Dashboard
 
-### 01 — Doctor Dashboard
-![Doctor Dashboard](docs/screenshots/doctor/01-dashboard.png)
+`<img src="docs/screenshots/doctor/01-dashboard.png" alt="Doctor Dashboard" width="100%">`{=html}
 
-### 02 — Appointments Queue
-![Appointments Queue](docs/screenshots/doctor/02-appointments-queue.png)
+## Appointments Queue
 
-### 03 — Consultation: Patient Intake
-![Consultation Intake](docs/screenshots/doctor/03-consultation-intake.png)
+`<img src="docs/screenshots/doctor/02-appointments-queue.png" alt="Appointments Queue" width="100%">`{=html}
 
-### 04 — Lab Tests & Prescription
-![Lab Tests and Prescription](docs/screenshots/doctor/04-lab-tests-prescription.png)
+## Consultation --- Patient Intake
 
-### 05 — Consultation Summary
-![Consultation Summary](docs/screenshots/doctor/05-consultation-summary.png)
+`<img src="docs/screenshots/doctor/03-consultation-patient-intake.png" alt="Consultation — Patient Intake" width="100%">`{=html}
 
-### 06 — Downloadable Consultation Report
-![Consultation PDF](docs/screenshots/doctor/06-consultation-pdf.png)
+## Lab Tests & Prescription
 
-### 07 — Patient History Search
-![Patient History Search](docs/screenshots/doctor/07-patient-history-search.png)
+`<img src="docs/screenshots/doctor/04-lab-tests-prescription.png" alt="Lab Tests & Prescription" width="100%">`{=html}
 
-### 08 — Patient History & Lab Results
-![Patient History Lab Results](docs/screenshots/doctor/08-patient-history-lab-results.png)
+## Consultation Summary
 
-</details>
+`<img src="docs/screenshots/doctor/05-consultation-summary.png" alt="Consultation Summary" width="100%">`{=html}
 
-### Doctor workflow
+## Downloadable Consultation Report
 
-```text
-Appointments
-     ↓
+`<img src="docs/screenshots/doctor/06-downloadable-consultation-report.png" alt="Downloadable Consultation Report" width="100%">`{=html}
+
+## Patient History & Reports --- Search
+
+`<img src="docs/screenshots/doctor/07-patient-history-search.png" alt="Patient History & Reports — Search" width="100%">`{=html}
+
+## Patient History & Reports --- Lab Results
+
+`<img src="docs/screenshots/doctor/08-patient-history-lab-results.png" alt="Patient History & Reports — Lab Results" width="100%">`{=html}
+
+### Doctor Workflow
+
+``` text
+Appointment Queue
+      ↓
+Patient Intake
+      ↓
 Consultation
-   ┌─┴───────────┐
-   ↓             ↓
-Lab Orders   Prescription
-   ↓             ↓
-Laboratory    Pharmacy
+   ┌──┴───────────┐
+   ↓              ↓
+Lab Orders     Prescription
+   ↓              ↓
+Laboratory     Pharmacy
+   └──────┬───────┘
+          ↓
+Consultation Summary / PDF / Patient History
 ```
 
----
+------------------------------------------------------------------------
 
-# 🧪 Laboratory / Lab Technician Module
+# 🧪 Laboratory Module --- Lab Technician
 
-**10 documented screens · `/lab`**
+These are the **actual Lab Technician application screenshots supplied
+for this README update**, rather than substituted presentation mockups.
 
-The Lab section below uses the **actual Lab Technician application screenshots supplied in this conversation**, plus the login screen needed to complete the documented 10-screen flow. fileciteturn3file5
+### Complete Laboratory Screens
 
-<details open>
-<summary><strong>View all 10 Laboratory screens</strong></summary>
+## Lab Technician Dashboard
 
-### 01 — Lab Technician Login
-![Lab Login](docs/screenshots/lab/10-login.png)
+`<img src="docs/screenshots/lab/01-dashboard.jpeg" alt="Lab Technician Dashboard" width="100%">`{=html}
 
-### 02 — Lab Dashboard
-![Lab Dashboard](docs/screenshots/lab/01-dashboard.jpeg)
+## Pending Tests
 
-### 03 — Pending Tests
-![Pending Tests](docs/screenshots/lab/02-pending-tests.jpeg)
+`<img src="docs/screenshots/lab/02-pending-tests.jpeg" alt="Pending Tests" width="100%">`{=html}
 
-### 04 — Enter Lab Result
-![Enter Lab Result](docs/screenshots/lab/03-enter-result.jpeg)
+## Enter Lab Result
 
-### 05 — Lab Billing: Unbilled Requests
-![Lab Billing Unbilled](docs/screenshots/lab/04-billing-unbilled.jpeg)
+`<img src="docs/screenshots/lab/03-enter-result.jpeg" alt="Enter Lab Result" width="100%">`{=html}
 
-### 06 — Lab Billing: Payment State
-![Lab Billing Payment State](docs/screenshots/lab/05-billing-paid-state.jpeg)
+## Lab Billing --- Unbilled Requests
 
-### 07 — Lab Bill Detail
-![Lab Bill Detail](docs/screenshots/lab/06-billing-detail.jpeg)
+`<img src="docs/screenshots/lab/04-billing-unbilled.jpeg" alt="Lab Billing — Unbilled Requests" width="100%">`{=html}
 
-### 08 — Completed Reports
-![Completed Reports](docs/screenshots/lab/07-completed-reports.jpeg)
+## Lab Billing --- Bill Detail / Payment Status
 
-### 09 — Laboratory Report Detail
-![Laboratory Report Detail](docs/screenshots/lab/08-report-detail.jpeg)
+`<img src="docs/screenshots/lab/05-billing-paid.jpeg" alt="Lab Billing — Bill Detail / Payment Status" width="100%">`{=html}
 
-### 10 — Patient Search
-![Lab Patient Search](docs/screenshots/lab/09-patient-search.png)
+## Completed Reports
 
-</details>
+`<img src="docs/screenshots/lab/06-completed-reports.jpeg" alt="Completed Reports" width="100%">`{=html}
 
-### Laboratory workflow
+## Laboratory Report Detail
 
-```text
+`<img src="docs/screenshots/lab/07-report-detail.jpeg" alt="Laboratory Report Detail" width="100%">`{=html}
+
+## Patient Search
+
+`<img src="docs/screenshots/lab/08-patient-search.png" alt="Patient Search" width="100%">`{=html}
+
+### Laboratory Workflow
+
+``` text
 Doctor Orders Test
        ↓
 Pending Tests
@@ -252,120 +267,87 @@ Lab Billing
 Patient Search / Report Lookup
 ```
 
----
+------------------------------------------------------------------------
 
 # 💊 Pharmacy Module
 
-**10 documented sub-modules · `/pharmacy`**
+The Pharmacy module covers medicine catalogue management, stock/batch
+management, prescription processing, FEFO dispensing, billing,
+reporting, and inventory/audit logging.
 
-The Pharmacy presentation describes the complete medication lifecycle: authentication, dashboard, medicines, stock, prescriptions, dispensing, billing, reports, inventory log, and audit log. fileciteturn3file5
+### Complete Pharmacy Screens & Engineering Views
 
-<details open>
-<summary><strong>View all Pharmacy UI screenshots</strong></summary>
+## Pharmacy Dashboard
 
-## Dashboard
-![Pharmacy Dashboard](docs/screenshots/pharmacy/01-dashboard.png)
+`<img src="docs/screenshots/pharmacy/01-pharmacy-dashboard.png" alt="Pharmacy Dashboard" width="100%">`{=html}
 
 ## Medicine Catalogue
-![Medicine Catalogue](docs/screenshots/pharmacy/02-medicine-catalogue.png)
 
-## Medicine Management — Add
-![Add Medicine](docs/screenshots/pharmacy/03-add-medicine.png)
+`<img src="docs/screenshots/pharmacy/02-medicine-catalogue.png" alt="Medicine Catalogue" width="100%">`{=html}
 
-## Medicine Management — Edit
-![Edit Medicine](docs/screenshots/pharmacy/04-edit-medicine.png)
+## Medicine Management
+
+`<img src="docs/screenshots/pharmacy/03-medicine-management.png" alt="Medicine Management" width="100%">`{=html}
 
 ## Stock Inventory
-![Stock Inventory](docs/screenshots/pharmacy/05-stock-inventory.png)
 
-## Stock Management — Add Batch
-![Add Stock Batch](docs/screenshots/pharmacy/06-add-stock-batch.png)
+`<img src="docs/screenshots/pharmacy/04-stock-inventory.png" alt="Stock Inventory" width="100%">`{=html}
 
-## Stock Management — Edit Batch
-![Edit Stock Batch](docs/screenshots/pharmacy/07-edit-stock-batch.png)
+## Stock Management
 
-## Prescription List
-![Prescription List](docs/screenshots/pharmacy/08-prescription-list.png)
+`<img src="docs/screenshots/pharmacy/05-stock-management.png" alt="Stock Management" width="100%">`{=html}
 
-## Prescription Detail
-![Prescription Detail](docs/screenshots/pharmacy/09-prescription-detail.png)
+## Prescription Management
 
-## Dispensing Queue
-![Dispensing Queue](docs/screenshots/pharmacy/10-dispensing-queue.png)
+`<img src="docs/screenshots/pharmacy/06-prescription-management.png" alt="Prescription Management" width="100%">`{=html}
 
-## Confirm Dispense & Bill
-![Confirm Dispense and Bill](docs/screenshots/pharmacy/11-confirm-dispense-bill.png)
+## Medicine Dispensing --- Core Flow
 
-## Dispensing History
-![Dispensing History](docs/screenshots/pharmacy/12-dispensing-history.png)
+`<img src="docs/screenshots/pharmacy/07-medicine-dispensing-core-flow.png" alt="Medicine Dispensing — Core Flow" width="100%">`{=html}
 
-## OTC Pharmacy Bill
-![OTC Pharmacy Bill](docs/screenshots/pharmacy/13-otc-pharmacy-bill.png)
+## Dispensing --- Atomic SQL Transaction
 
-## Bill Detail
-![Bill Detail](docs/screenshots/pharmacy/14-bill-detail.png)
+`<img src="docs/screenshots/pharmacy/08-atomic-dispensing-transaction.png" alt="Dispensing — Atomic SQL Transaction" width="100%">`{=html}
 
-## PDF Invoice
-![PDF Invoice](docs/screenshots/pharmacy/15-pdf-invoice.png)
+## Dispensing History & OTC Billing
 
-## Reports Dashboard
-![Reports Dashboard](docs/screenshots/pharmacy/16-reports-dashboard.png)
+`<img src="docs/screenshots/pharmacy/09-dispensing-history-otc-billing.png" alt="Dispensing History & OTC Billing" width="100%">`{=html}
 
-## Audit Log
-![Audit Log](docs/screenshots/pharmacy/17-audit-log.png)
+## Billing System & PDF Invoice
 
-## Inventory Log
-![Inventory Log](docs/screenshots/pharmacy/18-inventory-log.png)
+`<img src="docs/screenshots/pharmacy/10-billing-system-pdf-invoice.png" alt="Billing System & PDF Invoice" width="100%">`{=html}
 
-</details>
+## Reports & Analytics
 
-### Pharmacy workflow
+`<img src="docs/screenshots/pharmacy/11-reports-analytics.png" alt="Reports & Analytics" width="100%">`{=html}
 
-```text
+## Inventory Log & Audit Log
+
+`<img src="docs/screenshots/pharmacy/12-inventory-audit-log.png" alt="Inventory Log & Audit Log" width="100%">`{=html}
+
+### Pharmacy Workflow
+
+``` text
 Prescription
-     ↓
+    ↓
 Stock Check
-     ↓
-FEFO Deduction
-     ↓
-Medicine Dispensing
-     ↓
+    ↓
+FEFO Selection
+    ↓
+Dispensing
+    ↓
 Bill Creation
-     ↓
+    ↓
 PDF Invoice
-     ↓
+    ↓
 Reports / Inventory Log / Audit Log
 ```
 
----
-
-# ⭐ Key Engineering Features
-
-## FEFO — First Expired, First Out
-
-The Pharmacy module uses expiry-aware stock selection so earlier-expiring batches are consumed first.
-
-## Atomic Dispensing Transaction
-
-The documented Pharmacy dispensing flow chains the database operations for dispensing, stock deduction, bill creation, bill items, prescription status, and prescription/bill linking inside a transaction. The presentation states that a failure rolls the transaction back. fileciteturn3file5
-
-## Auditability
-
-The Pharmacy module includes inventory and audit logs for stock movement and pharmacist activity. fileciteturn3file5
-
-## PDF Generation
-
-The project uses QuestPDF for generated invoices/reports.
-
-## Reporting
-
-The project includes operational dashboards, reports, CSV export, and Chart.js visualizations.
-
----
+------------------------------------------------------------------------
 
 # 🧱 Architecture
 
-```text
+``` text
 Angular Frontend
       ↓
 ASP.NET Core Web API
@@ -374,37 +356,94 @@ Service Layer
       ↓
 Repository Layer
       ↓
-Dapper / SQL Operations
-      ↓
-Microsoft SQL Server
+SQL Server / Stored Procedures
 ```
 
-The supplied Pharmacy architecture documentation describes a five-layer design around Angular, ASP.NET Core controllers, services, repositories, and SQL Server stored procedures. fileciteturn3file5
+The project materials describe a shared architecture using Angular,
+ASP.NET Core Web API, SQL Server/stored procedures, role-based session
+authentication, QuestPDF for generated documents, and Chart.js for
+analytics.
 
----
+------------------------------------------------------------------------
 
 # 🛠️ Technology Stack
 
-| Layer | Technology |
-|---|---|
-| Frontend | Angular / TypeScript |
-| UI | Bootstrap / responsive components |
-| Reactive | RxJS |
-| Charts | Chart.js |
-| Backend | ASP.NET Core Web API / C# |
-| Data Access | Dapper / SQL Server stored procedures |
-| Database | Microsoft SQL Server |
-| Authentication | Session-based role authentication |
-| Documents | QuestPDF |
-| Reporting | CSV export + dashboards |
+  Layer                  Technology
+  ---------------------- -----------------------------------
+  Frontend               Angular 19, TypeScript
+  UI                     Bootstrap
+  Reactive Programming   RxJS
+  Charts                 Chart.js
+  Backend                ASP.NET Core Web API
+  Language               C#
+  Data Access            Dapper / Stored Procedures
+  Database               Microsoft SQL Server
+  Authentication         Session-based role authentication
+  PDF Generation         QuestPDF
+  Reporting              Chart.js + CSV export
 
----
+> Keep version numbers synchronized with the actual versions committed
+> in the repository.
 
-# 📁 Repository Layout
+------------------------------------------------------------------------
 
-```text
+# ⭐ Key Engineering Highlights
+
+## FEFO Medicine Dispensing
+
+Pharmacy dispensing follows **First Expired, First Out (FEFO)** so
+earlier-expiring batches are selected before later-expiring stock.
+
+``` text
+Medicine Batches
+      ↓
+Sort by Expiry Date ASC
+      ↓
+Select Earliest Expiry
+      ↓
+Deduct Required Quantity
+      ↓
+Continue to Next Batch if Required
+```
+
+## Atomic Dispensing Transaction
+
+The pharmacy workflow is designed around an atomic database transaction
+so related stock, dispensing, billing, and prescription updates do not
+leave partial state when an operation fails.
+
+## Audit & Inventory Traceability
+
+The Pharmacy workflow includes inventory and audit logging for stock
+movement and user activity.
+
+------------------------------------------------------------------------
+
+# 📊 Project Scope
+
+The supplied project presentation summarizes the system as four core
+modules with 45+ screens, 37+ API endpoints, and 6 report types.
+
+  Area                         Documented Scope
+  ----------------- ---------------------------
+  Core modules                                4
+  Overall screens                           45+
+  Doctor                              8 screens
+  Receptionist                       17 screens
+  Laboratory                         10 screens
+  Pharmacy            10 documented sub-modules
+  API endpoints                             37+
+  Report types                                6
+
+------------------------------------------------------------------------
+
+# 📁 Recommended Repository Structure
+
+``` text
 CMSV2026/
+│
 ├── README.md
+│
 ├── docs/
 │   └── screenshots/
 │       ├── shared/
@@ -412,39 +451,70 @@ CMSV2026/
 │       ├── doctor/
 │       ├── lab/
 │       └── pharmacy/
+│
 ├── frontend/
 ├── backend/
 └── database/
 ```
 
----
+------------------------------------------------------------------------
 
 # 🔒 Public GitHub Security Checklist
 
-Before publishing/maintaining the repository publicly:
+Before publishing or keeping this repository public:
 
-- [ ] Remove database passwords from committed configuration
-- [ ] Remove SMTP passwords / app passwords
-- [ ] Rotate credentials that were previously committed
-- [ ] Use environment variables or .NET User Secrets
-- [ ] Add local configuration to `.gitignore`
-- [ ] Remove `node_modules`, `bin`, `obj`, `.vs`, and generated output
-- [ ] Check Git history for secrets
-- [ ] Enable GitHub secret scanning / push protection where available
+-   [ ] Remove database passwords from committed configuration
+-   [ ] Remove SMTP passwords / app passwords
+-   [ ] Rotate credentials that were ever pushed publicly
+-   [ ] Use environment variables or .NET User Secrets
+-   [ ] Add local configuration files to `.gitignore`
+-   [ ] Remove `node_modules`, `bin`, `obj`, `.vs`, and generated build
+    output
+-   [ ] Check Git history for previously committed secrets
+-   [ ] Enable GitHub secret scanning / push protection where available
 
-> **Never commit production credentials, database passwords, API keys, SMTP credentials, or authentication tokens.**
+> **Never commit production credentials, database passwords, API keys,
+> SMTP credentials, or authentication tokens.**
 
----
+------------------------------------------------------------------------
 
-# 👨‍💻 InfinityCoderzz — CMS V2026
+# 🧑‍💻 Portfolio Positioning
 
-`Angular` · `ASP.NET Core` · `C#` · `SQL Server` · `Dapper` · `QuestPDF` · `Chart.js`
+This repository demonstrates a multi-role, end-to-end business
+application rather than a collection of isolated CRUD pages. The
+strongest areas to highlight in a resume are:
 
----
+-   Role-based multi-module architecture
+-   Angular + ASP.NET Core full-stack development
+-   SQL Server stored-procedure/data-access layer
+-   Cross-module clinical workflows
+-   Transaction-safe pharmacy dispensing
+-   FEFO inventory logic
+-   PDF invoice/report generation
+-   Reporting and analytics
+-   Inventory and audit traceability
 
-## Screenshot coverage
+------------------------------------------------------------------------
 
-This repository package includes the complete documented screen sequence for Receptionist and Doctor, the 10-screen Laboratory flow using the Lab Technician screenshots supplied in the conversation, and the full set of meaningful Pharmacy UI screenshots from the supplied project walkthrough.
+# 👨‍💻 InfinityCoderzz CMS V2026
+
+**Angular · ASP.NET Core · C# · SQL Server · Dapper · QuestPDF ·
+Chart.js**
+
+------------------------------------------------------------------------
+
+## 📸 Screenshot Notes
+
+-   Receptionist and Doctor images are rendered directly from the
+    uploaded module presentation decks.
+-   Pharmacy images are rendered directly from the uploaded CMS V2026
+    presentation deck.
+-   Laboratory images are the actual Lab Technician screenshots supplied
+    separately for this README update.
+-   All image references use repository-relative paths under
+    `docs/screenshots/`, so they render correctly on GitHub when the
+    entire folder is committed.
+
 
 
 
