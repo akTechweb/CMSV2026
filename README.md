@@ -61,7 +61,7 @@ Reports / History / Audit
 The application uses role-based access for the operational users. The
 shared authentication screen is shown below.
 
-`<img src="docs/screenshots/shared/authentication.png" alt="Authentication" width="100%">`{=html}
+![Authentication](docs/screenshots/shared/authentication.png)
 
 **Roles:** Receptionist · Doctor · Lab Technician / Lab Admin ·
 Pharmacist
@@ -78,71 +78,71 @@ reports, visits, and patient-directory management.
 
 ## Receptionist Dashboard
 
-`<img src="docs/screenshots/receptionist/01-dashboard.png" alt="Receptionist Dashboard" width="100%">`{=html}
+![Receptionist Dashboard](docs/screenshots/receptionist/01-dashboard.png)
 
 ## Dashboard --- Quick Patient Search
 
-`<img src="docs/screenshots/receptionist/02-dashboard-quick-patient-search.png" alt="Dashboard — Quick Patient Search" width="100%">`{=html}
+![Dashboard — Quick Patient Search](docs/screenshots/receptionist/02-dashboard-quick-patient-search.png)
 
 ## Book Appointment --- Find Patient
 
-`<img src="docs/screenshots/receptionist/03-book-appointment-find-patient.png" alt="Book Appointment — Find Patient" width="100%">`{=html}
+![Book Appointment — Find Patient](docs/screenshots/receptionist/03-book-appointment-find-patient.png)
 
 ## Book Appointment --- Choose Slot
 
-`<img src="docs/screenshots/receptionist/04-book-appointment-choose-slot.png" alt="Book Appointment — Choose Slot" width="100%">`{=html}
+![Book Appointment — Choose Slot](docs/screenshots/receptionist/04-book-appointment-choose-slot.png)
 
 ## Appointment Booked Confirmation
 
-`<img src="docs/screenshots/receptionist/05-appointment-booked-confirmation.png" alt="Appointment Booked Confirmation" width="100%">`{=html}
+![Appointment Booked Confirmation](docs/screenshots/receptionist/05-appointment-booked-confirmation.png)
 
 ## Register Patient --- Personal Details
 
-`<img src="docs/screenshots/receptionist/06-register-patient-personal-details.png" alt="Register Patient — Personal Details" width="100%">`{=html}
+![Register Patient — Personal Details](docs/screenshots/receptionist/06-register-patient-personal-details.png)
 
 ## Register Patient --- Contact Details
 
-`<img src="docs/screenshots/receptionist/07-register-patient-contact-details.png" alt="Register Patient — Contact Details" width="100%">`{=html}
+![Register Patient — Contact Details](docs/screenshots/receptionist/07-register-patient-contact-details.png)
 
 ## Registration Confirmation
 
-`<img src="docs/screenshots/receptionist/08-registration-confirmation.png" alt="Registration Confirmation" width="100%">`{=html}
+![Registration Confirmation](docs/screenshots/receptionist/08-registration-confirmation.png)
 
 ## Book Appointment for New Patient
 
-`<img src="docs/screenshots/receptionist/09-book-appointment-new-patient.png" alt="Book Appointment for New Patient" width="100%">`{=html}
+![Book Appointment for New Patient](docs/screenshots/receptionist/09-book-appointment-new-patient.png)
 
 ## Second Appointment Booked
 
-`<img src="docs/screenshots/receptionist/10-second-appointment-booked.png" alt="Second Appointment Booked" width="100%">`{=html}
+![Second Appointment Booked](docs/screenshots/receptionist/10-second-appointment-booked.png)
 
 ## Create Bill from Appointment
 
-`<img src="docs/screenshots/receptionist/11-create-bill-from-appointment.png" alt="Create Bill from Appointment" width="100%">`{=html}
+![Create Bill from Appointment](docs/screenshots/receptionist/11-create-bill-from-appointment.png)
 
 ## Bill Details & Payment History
 
-`<img src="docs/screenshots/receptionist/12-bill-details-payment-history.png" alt="Bill Details & Payment History" width="100%">`{=html}
+![Bill Details & Payment History](docs/screenshots/receptionist/12-bill-details-payment-history.png)
 
 ## Printable Invoice
 
-`<img src="docs/screenshots/receptionist/13-printable-invoice.png" alt="Printable Invoice" width="100%">`{=html}
+![Printable Invoice](docs/screenshots/receptionist/13-printable-invoice.png)
 
 ## Reports Dashboard
 
-`<img src="docs/screenshots/receptionist/14-reports-dashboard.png" alt="Reports Dashboard" width="100%">`{=html}
+![Reports Dashboard](docs/screenshots/receptionist/14-reports-dashboard.png)
 
 ## Patient Visits Log
 
-`<img src="docs/screenshots/receptionist/15-patient-visits-log.png" alt="Patient Visits Log" width="100%">`{=html}
+![Patient Visits Log](docs/screenshots/receptionist/15-patient-visits-log.png)
 
 ## Patients Directory
 
-`<img src="docs/screenshots/receptionist/16-patients-directory.png" alt="Patients Directory" width="100%">`{=html}
+![Patients Directory](docs/screenshots/receptionist/16-patients-directory.png)
 
 ## Patients Directory --- Edit & Audit
 
-`<img src="docs/screenshots/receptionist/17-patients-directory-edit-audit.png" alt="Patients Directory — Edit & Audit" width="100%">`{=html}
+![Patients Directory — Edit & Audit](docs/screenshots/receptionist/17-patients-directory-edit-audit.png)
 
 ### Receptionist Workflow
 
@@ -162,35 +162,35 @@ and patient history.
 
 ## Doctor Dashboard
 
-`<img src="docs/screenshots/doctor/01-dashboard.png" alt="Doctor Dashboard" width="100%">`{=html}
+![Doctor Dashboard](docs/screenshots/doctor/01-dashboard.png)
 
 ## Appointments Queue
 
-`<img src="docs/screenshots/doctor/02-appointments-queue.png" alt="Appointments Queue" width="100%">`{=html}
+![Appointments Queue](docs/screenshots/doctor/02-appointments-queue.png)
 
 ## Consultation --- Patient Intake
 
-`<img src="docs/screenshots/doctor/03-consultation-patient-intake.png" alt="Consultation — Patient Intake" width="100%">`{=html}
+![Consultation — Patient Intake](docs/screenshots/doctor/03-consultation-patient-intake.png)
 
 ## Lab Tests & Prescription
 
-`<img src="docs/screenshots/doctor/04-lab-tests-prescription.png" alt="Lab Tests & Prescription" width="100%">`{=html}
+![Lab Tests & Prescription](docs/screenshots/doctor/04-lab-tests-prescription.png)
 
 ## Consultation Summary
 
-`<img src="docs/screenshots/doctor/05-consultation-summary.png" alt="Consultation Summary" width="100%">`{=html}
+![Consultation Summary](docs/screenshots/doctor/05-consultation-summary.png)
 
 ## Downloadable Consultation Report
 
-`<img src="docs/screenshots/doctor/06-downloadable-consultation-report.png" alt="Downloadable Consultation Report" width="100%">`{=html}
+![Downloadable Consultation Report](docs/screenshots/doctor/06-downloadable-consultation-report.png)
 
 ## Patient History & Reports --- Search
 
-`<img src="docs/screenshots/doctor/07-patient-history-search.png" alt="Patient History & Reports — Search" width="100%">`{=html}
+![Patient History & Reports — Search](docs/screenshots/doctor/07-patient-history-search.png)
 
 ## Patient History & Reports --- Lab Results
 
-`<img src="docs/screenshots/doctor/08-patient-history-lab-results.png" alt="Patient History & Reports — Lab Results" width="100%">`{=html}
+![Patient History & Reports — Lab Results](docs/screenshots/doctor/08-patient-history-lab-results.png)
 
 ### Doctor Workflow
 
@@ -221,35 +221,35 @@ for this README update**, rather than substituted presentation mockups.
 
 ## Lab Technician Dashboard
 
-`<img src="docs/screenshots/lab/01-dashboard.jpeg" alt="Lab Technician Dashboard" width="100%">`{=html}
+![Lab Technician Dashboard](docs/screenshots/lab/01-dashboard.jpeg)
 
 ## Pending Tests
 
-`<img src="docs/screenshots/lab/02-pending-tests.jpeg" alt="Pending Tests" width="100%">`{=html}
+![Pending Tests](docs/screenshots/lab/02-pending-tests.jpeg)
 
 ## Enter Lab Result
 
-`<img src="docs/screenshots/lab/03-enter-result.jpeg" alt="Enter Lab Result" width="100%">`{=html}
+![Enter Lab Result](docs/screenshots/lab/03-enter-result.jpeg)
 
 ## Lab Billing --- Unbilled Requests
 
-`<img src="docs/screenshots/lab/04-billing-unbilled.jpeg" alt="Lab Billing — Unbilled Requests" width="100%">`{=html}
+![Lab Billing — Unbilled Requests](docs/screenshots/lab/04-billing-unbilled.jpeg)
 
 ## Lab Billing --- Bill Detail / Payment Status
 
-`<img src="docs/screenshots/lab/05-billing-paid.jpeg" alt="Lab Billing — Bill Detail / Payment Status" width="100%">`{=html}
+![Lab Billing — Bill Detail / Payment Status](docs/screenshots/lab/05-billing-paid.jpeg)
 
 ## Completed Reports
 
-`<img src="docs/screenshots/lab/06-completed-reports.jpeg" alt="Completed Reports" width="100%">`{=html}
+![Completed Reports](docs/screenshots/lab/06-completed-reports.jpeg)
 
 ## Laboratory Report Detail
 
-`<img src="docs/screenshots/lab/07-report-detail.jpeg" alt="Laboratory Report Detail" width="100%">`{=html}
+![Laboratory Report Detail](docs/screenshots/lab/07-report-detail.jpeg)
 
 ## Patient Search
 
-`<img src="docs/screenshots/lab/08-patient-search.png" alt="Patient Search" width="100%">`{=html}
+![Patient Search](docs/screenshots/lab/08-patient-search.png)
 
 ### Laboratory Workflow
 
@@ -279,51 +279,51 @@ reporting, and inventory/audit logging.
 
 ## Pharmacy Dashboard
 
-`<img src="docs/screenshots/pharmacy/01-pharmacy-dashboard.png" alt="Pharmacy Dashboard" width="100%">`{=html}
+![Pharmacy Dashboard](docs/screenshots/pharmacy/01-pharmacy-dashboard.png)
 
 ## Medicine Catalogue
 
-`<img src="docs/screenshots/pharmacy/02-medicine-catalogue.png" alt="Medicine Catalogue" width="100%">`{=html}
+![Medicine Catalogue](docs/screenshots/pharmacy/02-medicine-catalogue.png)
 
 ## Medicine Management
 
-`<img src="docs/screenshots/pharmacy/03-medicine-management.png" alt="Medicine Management" width="100%">`{=html}
+![Medicine Management](docs/screenshots/pharmacy/03-medicine-management.png)
 
 ## Stock Inventory
 
-`<img src="docs/screenshots/pharmacy/04-stock-inventory.png" alt="Stock Inventory" width="100%">`{=html}
+![Stock Inventory](docs/screenshots/pharmacy/04-stock-inventory.png)
 
 ## Stock Management
 
-`<img src="docs/screenshots/pharmacy/05-stock-management.png" alt="Stock Management" width="100%">`{=html}
+![Stock Management](docs/screenshots/pharmacy/05-stock-management.png)
 
 ## Prescription Management
 
-`<img src="docs/screenshots/pharmacy/06-prescription-management.png" alt="Prescription Management" width="100%">`{=html}
+![Prescription Management](docs/screenshots/pharmacy/06-prescription-management.png)
 
 ## Medicine Dispensing --- Core Flow
 
-`<img src="docs/screenshots/pharmacy/07-medicine-dispensing-core-flow.png" alt="Medicine Dispensing — Core Flow" width="100%">`{=html}
+![Medicine Dispensing — Core Flow](docs/screenshots/pharmacy/07-medicine-dispensing-core-flow.png)
 
 ## Dispensing --- Atomic SQL Transaction
 
-`<img src="docs/screenshots/pharmacy/08-atomic-dispensing-transaction.png" alt="Dispensing — Atomic SQL Transaction" width="100%">`{=html}
+![Dispensing — Atomic SQL Transaction](docs/screenshots/pharmacy/08-atomic-dispensing-transaction.png)
 
 ## Dispensing History & OTC Billing
 
-`<img src="docs/screenshots/pharmacy/09-dispensing-history-otc-billing.png" alt="Dispensing History & OTC Billing" width="100%">`{=html}
+![Dispensing History & OTC Billing](docs/screenshots/pharmacy/09-dispensing-history-otc-billing.png)
 
 ## Billing System & PDF Invoice
 
-`<img src="docs/screenshots/pharmacy/10-billing-system-pdf-invoice.png" alt="Billing System & PDF Invoice" width="100%">`{=html}
+![Billing System & PDF Invoice](docs/screenshots/pharmacy/10-billing-system-pdf-invoice.png)
 
 ## Reports & Analytics
 
-`<img src="docs/screenshots/pharmacy/11-reports-analytics.png" alt="Reports & Analytics" width="100%">`{=html}
+![Reports & Analytics](docs/screenshots/pharmacy/11-reports-analytics.png)
 
 ## Inventory Log & Audit Log
 
-`<img src="docs/screenshots/pharmacy/12-inventory-audit-log.png" alt="Inventory Log & Audit Log" width="100%">`{=html}
+![Inventory Log & Audit Log](docs/screenshots/pharmacy/12-inventory-audit-log.png)
 
 ### Pharmacy Workflow
 
@@ -514,6 +514,7 @@ Chart.js**
 -   All image references use repository-relative paths under
     `docs/screenshots/`, so they render correctly on GitHub when the
     entire folder is committed.
+
 
 
 
