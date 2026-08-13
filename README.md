@@ -1118,8 +1118,4 @@ Chart.js
 
 ---
 
-# ⭐ If you find this project useful
 
-Consider starring the repository and exploring the architecture, API contracts, database procedures, and role-specific workflows.
-
----
