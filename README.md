@@ -716,9 +716,4 @@ The repository includes screenshots for:
 
 ---
 
-
-
-
-
-
-
+> **Note:** This README describes the capabilities and architecture documented in the supplied project materials. It intentionally avoids claiming production deployment, automated test coverage, cloud infrastructure, microservices, or other capabilities unless they are part of the supplied project.
