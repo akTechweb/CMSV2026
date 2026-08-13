@@ -386,9 +386,6 @@ The screenshots in this section are the **actual Lab Technician application scre
 
 ![Lab Technician Dashboard](docs/screenshots/lab/01-dashboard.jpeg)
 
-## Pending Tests
-
-![Pending Tests](docs/screenshots/lab/02-pending-tests.jpeg)
 
 ## Enter Laboratory Result
 
@@ -406,13 +403,9 @@ The screenshots in this section are the **actual Lab Technician application scre
 
 ![Completed Reports](docs/screenshots/lab/07-completed-reports.jpeg)
 
-## Laboratory Report Detail
 
-![Laboratory Report Detail](docs/screenshots/lab/08-report-detail.jpeg)
 
-## Patient Search
 
-![Patient Search](docs/screenshots/lab/09-patient-search.png)
 
 ### Laboratory workflow
 
