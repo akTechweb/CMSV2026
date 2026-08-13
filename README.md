@@ -247,120 +247,6 @@ Reports / Patient Directory
 
 ---
 
-# 🩺 Doctor Module
-
-The Doctor module supports the clinical workflow from appointment queue through patient intake, consultation, laboratory orders, prescriptions, reports, and patient history.
-
-## Dashboard
-
-![Doctor Dashboard](docs/screenshots/doctor/01-dashboard.png)
-
-## Appointments Queue
-
-![Appointments Queue](docs/screenshots/doctor/02-appointments-queue.png)
-
-## Consultation — Patient Intake
-
-![Consultation — Patient Intake](docs/screenshots/doctor/03-consultation-intake.png)
-
-## Laboratory Tests & Prescription
-
-![Laboratory Tests & Prescription](docs/screenshots/doctor/04-lab-tests-prescription.png)
-
-## Consultation Summary
-
-![Consultation Summary](docs/screenshots/doctor/05-consultation-summary.png)
-
-## Downloadable Consultation Report
-
-![Downloadable Consultation Report](docs/screenshots/doctor/06-consultation-pdf.png)
-
-## Patient History — Search
-
-![Patient History — Search](docs/screenshots/doctor/07-patient-history-search.png)
-
-## Patient History — Laboratory Results
-
-![Patient History — Laboratory Results](docs/screenshots/doctor/08-patient-history-lab-results.png)
-
-### Doctor workflow
-
-```text
-Appointment Queue
-       ↓
-Patient Intake
-       ↓
-Consultation
-   ┌───┴─────────────┐
-   ▼                 ▼
-Lab Orders       Prescription
-   ▼                 ▼
-Laboratory        Pharmacy
-   └───────┬─────────┘
-           ▼
-Consultation Summary
-           ↓
-     PDF / Patient History
-```
-
----
-
-# 🧪 Laboratory Module
-
-The Laboratory module manages diagnostic processing from pending test requests through result entry, billing, completed reports, and patient search.
-
-The screenshots in this section are the **actual Lab Technician application screenshots supplied for the project**.
-
-## Lab Technician Dashboard
-
-![Lab Technician Dashboard](docs/screenshots/lab/01-dashboard.jpeg)
-
-## Pending Tests
-
-![Pending Tests](docs/screenshots/lab/02-pending-tests.jpeg)
-
-## Enter Laboratory Result
-
-![Enter Laboratory Result](docs/screenshots/lab/03-enter-result.jpeg)
-
-## Laboratory Billing — Unbilled Requests
-
-![Laboratory Billing — Unbilled Requests](docs/screenshots/lab/04-billing-unbilled.jpeg)
-
-## Laboratory Billing — Bill Detail / Payment Status
-
-![Laboratory Billing — Bill Detail / Payment Status](docs/screenshots/lab/06-billing-detail.jpeg)
-
-## Completed Reports
-
-![Completed Reports](docs/screenshots/lab/07-completed-reports.jpeg)
-
-## Laboratory Report Detail
-
-![Laboratory Report Detail](docs/screenshots/lab/08-report-detail.jpeg)
-
-## Patient Search
-
-![Patient Search](docs/screenshots/lab/09-patient-search.png)
-
-### Laboratory workflow
-
-```text
-Doctor Orders Test
-       ↓
-Pending Tests
-       ↓
-Result Entry
-       ↓
-Completed Report
-       ↓
-Laboratory Billing
-       ↓
-Patient Search / Report Lookup
-```
-
----
-
 # 💊 Pharmacy Module
 
 The Pharmacy module manages medication operations from medicine catalogue and batch inventory through prescription processing, FEFO dispensing, billing, reporting, and traceability.
@@ -475,6 +361,122 @@ Examples include:
 - Dashboard charts
 
 ---
+
+# 🩺 Doctor Module
+
+The Doctor module supports the clinical workflow from appointment queue through patient intake, consultation, laboratory orders, prescriptions, reports, and patient history.
+
+## Dashboard
+
+![Doctor Dashboard](docs/screenshots/doctor/01-dashboard.png)
+
+## Appointments Queue
+
+![Appointments Queue](docs/screenshots/doctor/02-appointments-queue.png)
+
+## Consultation — Patient Intake
+
+![Consultation — Patient Intake](docs/screenshots/doctor/03-consultation-intake.png)
+
+## Laboratory Tests & Prescription
+
+![Laboratory Tests & Prescription](docs/screenshots/doctor/04-lab-tests-prescription.png)
+
+## Consultation Summary
+
+![Consultation Summary](docs/screenshots/doctor/05-consultation-summary.png)
+
+## Downloadable Consultation Report
+
+![Downloadable Consultation Report](docs/screenshots/doctor/06-consultation-pdf.png)
+
+## Patient History — Search
+
+![Patient History — Search](docs/screenshots/doctor/07-patient-history-search.png)
+
+## Patient History — Laboratory Results
+
+![Patient History — Laboratory Results](docs/screenshots/doctor/08-patient-history-lab-results.png)
+
+### Doctor workflow
+
+```text
+Appointment Queue
+       ↓
+Patient Intake
+       ↓
+Consultation
+   ┌───┴─────────────┐
+   ▼                 ▼
+Lab Orders       Prescription
+   ▼                 ▼
+Laboratory        Pharmacy
+   └───────┬─────────┘
+           ▼
+Consultation Summary
+           ↓
+     PDF / Patient History
+```
+
+---
+
+# 🧪 Laboratory Module
+
+The Laboratory module manages diagnostic processing from pending test requests through result entry, billing, completed reports, and patient search.
+
+The screenshots in this section are the **actual Lab Technician application screenshots supplied for the project**.
+
+## Lab Technician Dashboard
+
+![Lab Technician Dashboard](docs/screenshots/lab/01-dashboard.jpeg)
+
+## Pending Tests
+
+![Pending Tests](docs/screenshots/lab/02-pending-tests.jpeg)
+
+## Enter Laboratory Result
+
+![Enter Laboratory Result](docs/screenshots/lab/03-enter-result.jpeg)
+
+## Laboratory Billing — Unbilled Requests
+
+![Laboratory Billing — Unbilled Requests](docs/screenshots/lab/04-billing-unbilled.jpeg)
+
+## Laboratory Billing — Bill Detail / Payment Status
+
+![Laboratory Billing — Bill Detail / Payment Status](docs/screenshots/lab/06-billing-detail.jpeg)
+
+## Completed Reports
+
+![Completed Reports](docs/screenshots/lab/07-completed-reports.jpeg)
+
+## Laboratory Report Detail
+
+![Laboratory Report Detail](docs/screenshots/lab/08-report-detail.jpeg)
+
+## Patient Search
+
+![Patient Search](docs/screenshots/lab/09-patient-search.png)
+
+### Laboratory workflow
+
+```text
+Doctor Orders Test
+       ↓
+Pending Tests
+       ↓
+Result Entry
+       ↓
+Completed Report
+       ↓
+Laboratory Billing
+       ↓
+Patient Search / Report Lookup
+```
+
+---
+
+
 
 # Database & Data Layer
 
