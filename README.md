@@ -1,11 +1,9 @@
-# InfinityCoderzz CMS — Clinic Management System
+#  CMS — Clinic Management System
 
 > A full-stack, role-based Clinic Management System connecting Reception, Doctor, Laboratory, and Pharmacy workflows.
 
 ## 📌 Project at a Glance
 
-
-> **Full-stack Clinic Management System** connecting Reception, Doctor, Laboratory, and Pharmacy operations through one role-based platform.
 
 [![Angular](https://img.shields.io/badge/Angular-19-DD0031?logo=angular&logoColor=white)](https://angular.dev/)
 [![ASP.NET Core](https://img.shields.io/badge/ASP.NET%20Core-Web%20API-512BD4?logo=dotnet&logoColor=white)](https://dotnet.microsoft.com/apps/aspnet)
@@ -220,9 +218,6 @@ The Receptionist module manages the front-desk workflow from patient registratio
 
 ![Patient Visits Log](docs/screenshots/receptionist/15-patient-visits.png)
 
-## Patients Directory
-
-![Patients Directory](docs/screenshots/receptionist/16-patients-directory.png)
 
 ## Patients Directory — Edit & Audit
 
