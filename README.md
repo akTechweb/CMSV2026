@@ -429,47 +429,83 @@ CMSV2026/
 
 ---
 
-## Local Development
+🚀 Local Development
+Prerequisites
+.NET 8 SDK
+Node.js and npm
+Angular CLI compatible with the project version
+Microsoft SQL Server
+SQL Server Management Studio (SSMS) or another SQL client
+1. Database
 
-## Prerequisites
+Create/configure the SQL Server database and execute the database script.
 
-- Node.js and npm
-- Angular CLI compatible with the project version
-- .NET 8 SDK
-- Microsoft SQL Server
-- SQL Server Management Studio or equivalent SQL client
 
-## Database
+Configure the database connection using local/environment-specific configuration.
 
-Create/configure the SQL Server database and execute:
+Do not commit database passwords, API keys, SMTP credentials, or other secrets to the repository.
 
-```text
-ScriptDBFinal(6).sql
-```
+2. Backend — ASP.NET Core Web API
 
-## Backend
+Navigate to the backend project:
 
-From the ASP.NET Core API project:
+cd <backend-project-directory>
 
-```bash
+Restore dependencies:
+
 dotnet restore
+
+Run the API:
+
 dotnet run
-```
 
-The project uses environment-specific configuration for the database connection and other infrastructure settings.
+After the API starts, use the URL displayed in the terminal or launch profile.
 
-## Frontend
+Swagger/OpenAPI is available at:
 
-From the Angular project:
+https://localhost:<backend-port>/swagger
+3. Frontend — Angular
 
-```bash
+Navigate to the Angular project:
+
+cd <frontend-project-directory>
+
+Install dependencies:
+
 npm install
+
+Start the Angular development server:
+
 npm start
-```
 
-Configure the frontend API URL to match the backend launch URL.
+If the project does not define an npm start script, use:
 
-> Do not commit real credentials or environment-specific secrets to the repository.
+ng serve
+
+The Angular development server is typically available at:
+
+http://localhost:4200
+4. Configure API Connection
+
+Configure the Angular application's API base URL to match the backend URL shown when the ASP.NET Core API starts.
+
+For example:
+
+https://localhost:<backend-port>/api
+
+The exact port may vary depending on the local launch profile.
+
+5. Run the Application
+
+Start the backend first:
+
+dotnet run
+
+Then start the Angular frontend:
+
+npm start
+
+Open the Angular application in your browser and sign in using locally configured development credentials.
 
 ---
 
