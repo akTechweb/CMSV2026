@@ -4,7 +4,6 @@
 
 ## 📌 Project at a Glance
 
-InfinityCoderzz CMS brings four operational areas int# InfinityCoderzz CMS V2026
 
 > **Full-stack Clinic Management System** connecting Reception, Doctor, Laboratory, and Pharmacy operations through one role-based platform.
 
@@ -678,7 +677,7 @@ The project is intended to demonstrate the ability to design and implement a **n
 
 ## Author
 
-## InfinityCoderzz CMS V2026
+## InfinityCoderzz CMSV2026
 
 **Full-Stack Clinic Management System**
 
