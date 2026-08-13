@@ -1015,26 +1015,23 @@ The Pharmacy presentation describes the complete medication lifecycle: authentic
 ## Confirm Dispense & Bill
 ![Confirm Dispense and Bill](docs/screenshots/pharmacy/11-confirm-dispense-bill.png)
 
-## Dispensing History
-![Dispensing History](docs/screenshots/pharmacy/12-dispensing-history.png)
+## Dispensing History & OTC Billing
+![Dispensing History](docs/screenshots/pharmacy/12-dispensing-history-otc-billing.png)
 
-## OTC Pharmacy Bill
-![OTC Pharmacy Bill](docs/screenshots/pharmacy/13-otc-pharmacy-bill.png)
 
-## Bill Detail
-![Bill Detail](docs/screenshots/pharmacy/14-bill-detail.png)
 
-## PDF Invoice
-![PDF Invoice](docs/screenshots/pharmacy/15-pdf-invoice.png)
+## Bill Details & Pdf Invoice
+![Bill Detail](docs/screenshots/pharmacy/10-billing-system-pdf-invoice.png)
+
+
 
 ## Reports Dashboard
-![Reports Dashboard](docs/screenshots/pharmacy/16-reports-dashboard.png)
+![Reports Dashboard](docs/screenshots/pharmacy/16-reports-analytics.png)
 
-## Audit Log
-![Audit Log](docs/screenshots/pharmacy/17-audit-log.png)
+## Audit Log & Inventory Log
+![Audit Log](docs/screenshots/pharmacy/12-inventory-audit-log.png)
 
-## Inventory Log
-![Inventory Log](docs/screenshots/pharmacy/18-inventory-log.png)
+
 
 </details>
 
