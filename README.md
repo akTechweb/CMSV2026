@@ -167,27 +167,27 @@ The Receptionist module manages the front-desk workflow from patient registratio
 
 ## Dashboard — Quick Patient Search
 
-![Dashboard — Quick Patient Search](docs/screenshots/receptionist/02-dashboard-quick-patient-search.png)
+![Dashboard — Quick Patient Search](docs/screenshots/receptionist/02-quick-patient-search.png)
 
 ## Book Appointment — Find Patient
 
-![Book Appointment — Find Patient](docs/screenshots/receptionist/03-book-appointment-find-patient.png)
+![Book Appointment — Find Patient](docs/screenshots/receptionist/03-find-patient.png)
 
 ## Book Appointment — Choose Slot
 
-![Book Appointment — Choose Slot](docs/screenshots/receptionist/04-book-appointment-choose-slot.png)
+![Book Appointment — Choose Slot](docs/screenshots/receptionist/04-choose-slot.png)
 
 ## Appointment Booked Confirmation
 
-![Appointment Booked Confirmation](docs/screenshots/receptionist/05-appointment-booked-confirmation.png)
+![Appointment Booked Confirmation](docs/screenshots/receptionist/05-appointment-confirmation.png)
 
 ## Register Patient — Personal Details
 
-![Register Patient — Personal Details](docs/screenshots/receptionist/06-register-patient-personal-details.png)
+![Register Patient — Personal Details](docs/screenshots/receptionist/06-registration-personal.png)
 
 ## Register Patient — Contact Details
 
-![Register Patient — Contact Details](docs/screenshots/receptionist/07-register-patient-contact-details.png)
+![Register Patient — Contact Details](docs/screenshots/receptionist/07-registration-contact.png)
 
 ## Registration Confirmation
 
@@ -195,19 +195,19 @@ The Receptionist module manages the front-desk workflow from patient registratio
 
 ## Book Appointment for New Patient
 
-![Book Appointment for New Patient](docs/screenshots/receptionist/09-book-appointment-new-patient.png)
+![Book Appointment for New Patient](docs/screenshots/receptionist/09-new-patient-appointment.png)
 
 ## Second Appointment Booked
 
-![Second Appointment Booked](docs/screenshots/receptionist/10-second-appointment-booked.png)
+![Second Appointment Booked](docs/screenshots/receptionist/10-second-appointment.png)
 
 ## Create Bill from Appointment
 
-![Create Bill from Appointment](docs/screenshots/receptionist/11-create-bill-from-appointment.png)
+![Create Bill from Appointment](docs/screenshots/receptionist/11-create-bill.png)
 
 ## Bill Details & Payment History
 
-![Bill Details & Payment History](docs/screenshots/receptionist/12-bill-details-payment-history.png)
+![Bill Details & Payment History](docs/screenshots/receptionist/12-bill-payment-history.png)
 
 ## Printable Invoice
 
@@ -219,7 +219,7 @@ The Receptionist module manages the front-desk workflow from patient registratio
 
 ## Patient Visits Log
 
-![Patient Visits Log](docs/screenshots/receptionist/15-patient-visits-log.png)
+![Patient Visits Log](docs/screenshots/receptionist/15-patient-visits.png)
 
 ## Patients Directory
 
@@ -227,7 +227,7 @@ The Receptionist module manages the front-desk workflow from patient registratio
 
 ## Patients Directory — Edit & Audit
 
-![Patients Directory — Edit & Audit](docs/screenshots/receptionist/17-patients-directory-edit-audit.png)
+![Patients Directory — Edit & Audit](docs/screenshots/receptionist/17-patients-edit-audit.png)
 
 ### Receptionist workflow
 
@@ -261,7 +261,7 @@ The Doctor module supports the clinical workflow from appointment queue through 
 
 ## Consultation — Patient Intake
 
-![Consultation — Patient Intake](docs/screenshots/doctor/03-consultation-patient-intake.png)
+![Consultation — Patient Intake](docs/screenshots/doctor/03-consultation-intake.png)
 
 ## Laboratory Tests & Prescription
 
@@ -273,7 +273,7 @@ The Doctor module supports the clinical workflow from appointment queue through 
 
 ## Downloadable Consultation Report
 
-![Downloadable Consultation Report](docs/screenshots/doctor/06-downloadable-consultation-report.png)
+![Downloadable Consultation Report](docs/screenshots/doctor/06-consultation-pdf.png)
 
 ## Patient History — Search
 
@@ -329,19 +329,19 @@ The screenshots in this section are the **actual Lab Technician application scre
 
 ## Laboratory Billing — Bill Detail / Payment Status
 
-![Laboratory Billing — Bill Detail / Payment Status](docs/screenshots/lab/05-billing-paid.jpeg)
+![Laboratory Billing — Bill Detail / Payment Status](docs/screenshots/lab/06-billing-detail.jpeg)
 
 ## Completed Reports
 
-![Completed Reports](docs/screenshots/lab/06-completed-reports.jpeg)
+![Completed Reports](docs/screenshots/lab/07-completed-reports.jpeg)
 
 ## Laboratory Report Detail
 
-![Laboratory Report Detail](docs/screenshots/lab/07-report-detail.jpeg)
+![Laboratory Report Detail](docs/screenshots/lab/08-report-detail.jpeg)
 
 ## Patient Search
 
-![Patient Search](docs/screenshots/lab/08-patient-search.png)
+![Patient Search](docs/screenshots/lab/09-patient-search.png)
 
 ### Laboratory workflow
 
