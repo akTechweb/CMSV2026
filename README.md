@@ -393,7 +393,7 @@ The screenshots in this section are the **actual Lab Technician application scre
 
 ## Laboratory Report Detail
 
-![Laboratory Report Detail](docs/screenshots/lab/07-report-detail.jpeg)
+![Laboratory Report Detail](docs/screenshots/lab/08-report-detail.jpeg)
 
 
 
