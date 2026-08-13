@@ -296,24 +296,6 @@ The Pharmacy workflow includes inventory and audit logging for operational trace
 
 ---
 
-## Reporting & Analytics
-
-The project includes role-specific operational reporting and dashboard visualization.
-
-Examples include:
-
-- Appointment and operational summaries
-- Laboratory workload and completed-report views
-- Pharmacy sales summary
-- Medicine-wise sales
-- Stock status
-- Expiry monitoring
-- Low-stock monitoring
-- Dispensing reports
-- CSV export
-- Dashboard charts
-
----
 
 # 🩺 Doctor Module
 
@@ -417,37 +399,6 @@ Patient Search / Report Lookup
 
 ---
 
-
-
-# Database & Data Layer
-
-The system uses Microsoft SQL Server with relational tables and stored procedures to support core business operations.
-
-The database script supplied with the project is:
-
-```text
-ScriptDBFinal(6).sql
-```
-
-The data-access flow is:
-
-```text
-Angular
-   ↓
-ASP.NET Core API
-   ↓
-Service
-   ↓
-Repository
-   ↓
-Dapper
-   ↓
-SQL Server Stored Procedure
-   ↓
-Database
-```
-
----
 
 # Project Structure
 
@@ -597,9 +548,9 @@ This makes the project representative of a business workflow spanning multiple f
 
 
 
-## Portfolio Summary
+## Project Summary
 
-InfinityCoderzz CMS V2026 demonstrates full-stack engineering across:
+ CMSV2026 demonstrates full-stack engineering across:
 
 - Angular frontend development
 - ASP.NET Core Web API development
@@ -618,11 +569,6 @@ The project is intended to demonstrate the ability to design and implement a **n
 
 ---
 
-
-
-## Author
-
-## InfinityCoderzz CMSV2026
 
 **Full-Stack Clinic Management System**
 
