@@ -1,4 +1,4 @@
-# InfinityCoderzz CMS — Healthcare Management System
+#  CMS — Healthcare Management System
 
 > A modular healthcare management platform built with **Angular 20**, **TypeScript**, and a role-based architecture for managing clinical, laboratory, reception, and pharmacy workflows.
 
