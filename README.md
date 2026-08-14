@@ -169,12 +169,14 @@ validation, and soft disabling.
 
 ![Medicine Management](docs/screenshots/pharmacy/02-medicine-catalogue.png)
 
-![Medicine Management](docs/screenshots/pharmacy/02-medicine-management.png)
+![Medicine Management](docs/screenshots/pharmacy/03-medicine-management.png)
 
 ## Stock & Batch Management
 
 Stock is tracked by batch and expiry, with low-stock, expiring-soon, and
 expired views.
+
+![Stock Management](docs/screenshots/pharmacy/04-stock-inventory.png)
 
 ![Stock Management](docs/screenshots/pharmacy/05-stock-management.png)
 
@@ -186,19 +188,30 @@ and updates the prescription status.
 
 ![Medicine Dispensing](docs/screenshots/pharmacy/06-prescription-management.png)
 
+![Medicine Dispensing](docs/screenshots/pharmacy/07-medicine-dispensing-core-flow.png)
+
 ## Pharmacy Billing & PDF Invoice
 
 Pharmacy bills support detailed billing, invoice generation,
 printing/download, and prescription linkage.
 
-![Pharmacy Billing](docs/screenshots/pharmacy/05-billing.png)
+![Pharmacy Billing](docs/screenshots/pharmacy/09-dispensing-history-otc-billing.png)
+
+![Pharmacy Billing](docs/screenshots/pharmacy/10-billing-system-pdf-invoice.png)
 
 ## Reports & Analytics
 
 The pharmacy reporting layer covers sales, medicine-wise sales, stock
 status, expiry, low-stock, and dispensing reports with CSV export.
 
-![Pharmacy Reports](docs/screenshots/pharmacy/06-reports.png)
+![Pharmacy Reports](docs/screenshots/pharmacy/11-reports-analytics.png)
+
+
+## Inventory & Audit log 
+
+![Pharmacy Reports](docs/screenshots/pharmacy/12-inventory-audit-log.png)
+
+
 </details>
 
 ---
