@@ -154,60 +154,54 @@ The Pharmacy module provides end-to-end medicine and pharmacy operations.
 <details open>
 <summary><strong>View all Pharmacy UI screenshots</strong></summary>
 
-## Dashboard
-![Pharmacy Dashboard](docs/screenshots/pharmacy/01-dashboard.png)
+
+## Pharmacy Dashboard
+
+`<img src="docs/screenshots/pharmacy/01-pharmacy-dashboard.png" alt="Pharmacy Dashboard" width="100%">`{=html}
 
 ## Medicine Catalogue
-![Medicine Catalogue](docs/screenshots/pharmacy/02-medicine-catalogue.png)
 
-## Medicine Management — Add
-![Add Medicine](docs/screenshots/pharmacy/03-add-medicine.png)
+`<img src="docs/screenshots/pharmacy/02-medicine-catalogue.png" alt="Medicine Catalogue" width="100%">`{=html}
 
-## Medicine Management — Edit
-![Edit Medicine](docs/screenshots/pharmacy/04-edit-medicine.png)
+## Medicine Management
+
+`<img src="docs/screenshots/pharmacy/03-medicine-management.png" alt="Medicine Management" width="100%">`{=html}
 
 ## Stock Inventory
-![Stock Inventory](docs/screenshots/pharmacy/05-stock-inventory.png)
 
-## Stock Management — Add Batch
-![Add Stock Batch](docs/screenshots/pharmacy/06-add-stock-batch.png)
+`<img src="docs/screenshots/pharmacy/04-stock-inventory.png" alt="Stock Inventory" width="100%">`{=html}
 
-## Stock Management — Edit Batch
-![Edit Stock Batch](docs/screenshots/pharmacy/07-edit-stock-batch.png)
+## Stock Management
 
-## Prescription List
-![Prescription List](docs/screenshots/pharmacy/08-prescription-list.png)
+`<img src="docs/screenshots/pharmacy/05-stock-management.png" alt="Stock Management" width="100%">`{=html}
 
-## Prescription Detail
-![Prescription Detail](docs/screenshots/pharmacy/09-prescription-detail.png)
+## Prescription Management
 
-## Dispensing Queue
-![Dispensing Queue](docs/screenshots/pharmacy/10-dispensing-queue.png)
+`<img src="docs/screenshots/pharmacy/06-prescription-management.png" alt="Prescription Management" width="100%">`{=html}
 
-## Confirm Dispense & Bill
-![Confirm Dispense and Bill](docs/screenshots/pharmacy/11-confirm-dispense-bill.png)
+## Medicine Dispensing --- Core Flow
 
-## Dispensing History
-![Dispensing History](docs/screenshots/pharmacy/12-dispensing-history.png)
+`<img src="docs/screenshots/pharmacy/07-medicine-dispensing-core-flow.png" alt="Medicine Dispensing — Core Flow" width="100%">`{=html}
 
-## OTC Pharmacy Bill
-![OTC Pharmacy Bill](docs/screenshots/pharmacy/13-otc-pharmacy-bill.png)
+## Dispensing --- Atomic SQL Transaction
 
-## Bill Detail
-![Bill Detail](docs/screenshots/pharmacy/14-bill-detail.png)
+`<img src="docs/screenshots/pharmacy/08-atomic-dispensing-transaction.png" alt="Dispensing — Atomic SQL Transaction" width="100%">`{=html}
 
-## PDF Invoice
-![PDF Invoice](docs/screenshots/pharmacy/15-pdf-invoice.png)
+## Dispensing History & OTC Billing
 
-## Reports Dashboard
-![Reports Dashboard](docs/screenshots/pharmacy/16-reports-dashboard.png)
+`<img src="docs/screenshots/pharmacy/09-dispensing-history-otc-billing.png" alt="Dispensing History & OTC Billing" width="100%">`{=html}
 
-## Audit Log
-![Audit Log](docs/screenshots/pharmacy/17-audit-log.png)
+## Billing System & PDF Invoice
 
-## Inventory Log
-![Inventory Log](docs/screenshots/pharmacy/18-inventory-log.png)
+`<img src="docs/screenshots/pharmacy/10-billing-system-pdf-invoice.png" alt="Billing System & PDF Invoice" width="100%">`{=html}
 
+## Reports & Analytics
+
+`<img src="docs/screenshots/pharmacy/11-reports-analytics.png" alt="Reports & Analytics" width="100%">`{=html}
+
+## Inventory Log & Audit Log
+
+`<img src="docs/screenshots/pharmacy/12-inventory-audit-log.png" alt="Inventory Log & Audit Log" width="100%">`{=html}
 </details>
 
 ---
