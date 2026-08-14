@@ -304,8 +304,6 @@ The Laboratory workspace supports the lifecycle of diagnostic requests and resul
 <details open>
 <summary><strong>View all 10 Laboratory screens</strong></summary>
 
-### 01 — Lab Technician Login
-![Lab Login](docs/screenshots/lab/10-login.png)
 
 ### 02 — Lab Dashboard
 ![Lab Dashboard](docs/screenshots/lab/01-dashboard.jpeg)
