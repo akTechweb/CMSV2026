@@ -2,21 +2,17 @@
 
 > A full-stack, role-based Clinic Management System built with Angular 20, ASP.NET Core Web API, C#, and Microsoft SQL Server.
 
-InfinityCoderzz CMS connects four operational modules into one clinic
-workflow:
+InfinityCoderzz CMS connects four operational modules into a single clinic workflow:
 
-**Doctor → Receptionist → Laboratory → Pharmacy**
+**Reception → Doctor → Laboratory → Pharmacy**
 
-The supplied project walkthrough documents **8 Doctor screens, 17
-Receptionist screens, 10 Laboratory screens, and 10 Pharmacy screens**,
-covering appointments, consultation, patient registration, diagnostics,
-medicine inventory, dispensing, billing, and reporting.
+The project documents **45+ application screens** across four core modules: **8 Doctor screens, 17 Receptionist screens, 10 Laboratory screens, and 10 Pharmacy screens**. The workflows cover appointments, consultation, patient registration, diagnostics, medicine inventory, dispensing, billing, reporting, and patient history.
 
 ------------------------------------------------------------------------
 
 ## ✨ Why this project stands out
 
--   Role-based access for Doctor, Receptionist, Lab, and Pharmacist
+-   Role-based access for Doctor, Receptionist, Lab Technician, and Pharmacist
     users
 -   Angular frontend with route-guarded module access
 -   ASP.NET Core Web API backend
@@ -265,6 +261,16 @@ export.
 
 ------------------------------------------------------------------------
 
+# 📘 API Documentation
+
+The ASP.NET Core backend exposes RESTful endpoints for the application's business modules and can be explored through Swagger/OpenAPI while running locally.
+
+```text
+https://localhost:<backend-port>/swagger
+```
+
+Use the actual HTTPS port shown by the ASP.NET Core launch profile.
+
 # 🔐 Authentication & Role-Based Access
 
 All four modules use the same role-guarded login flow. The supplied
@@ -285,7 +291,7 @@ Supported roles:
 
 -   Doctor
 -   Receptionist
--   Lab
+-   Lab Technician
 -   Pharmacist
 
 ------------------------------------------------------------------------
@@ -359,31 +365,26 @@ cancellation.
   Reporting                           Chart.js + CSV Export
   -----------------------------------------------------------------------
 
-The supplied architecture documentation specifically identifies Angular
-19, ASP.NET Core Web API, SQL Server stored procedures, QuestPDF,
-Chart.js, and session authentication.
-
-> **Note:** Keep the technology versions in this README synchronized
-> with the versions actually present in the committed source
-> repositories.
+The frontend is based on **Angular 20** and the backend targets **.NET 8 / ASP.NET Core Web API**. Database operations use **Microsoft.Data.SqlClient (ADO.NET)** and SQL Server stored procedures.
 
 ------------------------------------------------------------------------
 
-# 📂 Repository Layout
+# 📂 Repository Contents
 
-``` text
-.
-├── README.md
-├── docs/
-│   └── screenshots/
-│       ├── receptionist/
-│       ├── doctor/
-│       ├── lab/
-│       └── pharmacy/
-├── frontend/
-├── backend/
-└── database/
-    └── ScriptDBFinal.sql
+The repository contains the application source, database script, and documentation assets. The screenshot paths used by this README are kept under `docs/screenshots/` so GitHub can render them directly.
+
+```text
+README.md
+docs/
+└── screenshots/
+    ├── receptionist/
+    ├── doctor/
+    ├── lab/
+    └── pharmacy/
+
+Angular frontend
+ASP.NET Core Web API
+SQL Server database script
 ```
 
 ------------------------------------------------------------------------
@@ -438,33 +439,16 @@ PDF Invoice
 
 # 📊 Project Scope
 
-  ------------------------------------------------------------------------
-  Module                                     Screens Primary
-                                                     Responsibilities
-  --------------------- ---------------------------- ---------------------
-  Doctor                                           8 Appointments,
-                                                     consultation,
-                                                     prescriptions,
-                                                     patient history
-
-  Receptionist                                    17 Registration,
-                                                     appointments,
-                                                     billing, reports,
-                                                     visits
-
-  Laboratory                                      10 Test intake, results,
-                                                     billing, completed
-                                                     reports
-
-  Pharmacy                                        10 Medicines, stock,
-                                                     dispensing, billing,
-                                                     analytics
-  ------------------------------------------------------------------------
-
-The project walkthrough reports **45+ screens overall**, **37+ API
-endpoints**, and **6 report types** in its closing project summary.
-
-------------------------------------------------------------------------
+| Area | Scope |
+|---|---:|
+| Core modules | **4** |
+| Documented application screens | **45+** |
+| Doctor screens | **8** |
+| Receptionist screens | **17** |
+| Laboratory screens | **10** |
+| Pharmacy screens | **10** |
+| API endpoints | **80+** |
+| Documented report types | **6** |
 
 # 🚀 Local Development
 
