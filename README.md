@@ -157,51 +157,48 @@ The Pharmacy module provides end-to-end medicine and pharmacy operations.
 
 ## Pharmacy Dashboard
 
-`<img src="docs/screenshots/pharmacy/01-pharmacy-dashboard.png" alt="Pharmacy Dashboard" width="100%">`{=html}
+The dashboard combines medicine/stock KPIs, pending prescriptions,
+revenue, dispensing charts, low-stock alerts, and expiry alerts.
 
-## Medicine Catalogue
-
-`<img src="docs/screenshots/pharmacy/02-medicine-catalogue.png" alt="Medicine Catalogue" width="100%">`{=html}
+![Pharmacy Dashboard](docs/screenshots/pharmacy/01-pharmacy-dashboard.png)
 
 ## Medicine Management
 
-`<img src="docs/screenshots/pharmacy/03-medicine-management.png" alt="Medicine Management" width="100%">`{=html}
+Medicine records support creation, editing, generated medicine codes,
+validation, and soft disabling.
 
-## Stock Inventory
+![Medicine Management](docs/screenshots/pharmacy/02-medicine-catalogue.png)
 
-`<img src="docs/screenshots/pharmacy/04-stock-inventory.png" alt="Stock Inventory" width="100%">`{=html}
+![Medicine Management](docs/screenshots/pharmacy/02-medicine-management.png)
 
-## Stock Management
+## Stock & Batch Management
 
-`<img src="docs/screenshots/pharmacy/05-stock-management.png" alt="Stock Management" width="100%">`{=html}
+Stock is tracked by batch and expiry, with low-stock, expiring-soon, and
+expired views.
 
-## Prescription Management
+![Stock Management](docs/screenshots/pharmacy/05-stock-management.png)
 
-`<img src="docs/screenshots/pharmacy/06-prescription-management.png" alt="Prescription Management" width="100%">`{=html}
+## Prescription Dispensing
 
-## Medicine Dispensing --- Core Flow
+The core dispensing workflow performs stock checking, applies **FEFO
+(First Expired First Out)**, deducts stock, creates billing information,
+and updates the prescription status.
 
-`<img src="docs/screenshots/pharmacy/07-medicine-dispensing-core-flow.png" alt="Medicine Dispensing — Core Flow" width="100%">`{=html}
+![Medicine Dispensing](docs/screenshots/pharmacy/06-prescription-management.png)
 
-## Dispensing --- Atomic SQL Transaction
+## Pharmacy Billing & PDF Invoice
 
-`<img src="docs/screenshots/pharmacy/08-atomic-dispensing-transaction.png" alt="Dispensing — Atomic SQL Transaction" width="100%">`{=html}
+Pharmacy bills support detailed billing, invoice generation,
+printing/download, and prescription linkage.
 
-## Dispensing History & OTC Billing
-
-`<img src="docs/screenshots/pharmacy/09-dispensing-history-otc-billing.png" alt="Dispensing History & OTC Billing" width="100%">`{=html}
-
-## Billing System & PDF Invoice
-
-`<img src="docs/screenshots/pharmacy/10-billing-system-pdf-invoice.png" alt="Billing System & PDF Invoice" width="100%">`{=html}
+![Pharmacy Billing](docs/screenshots/pharmacy/05-billing.png)
 
 ## Reports & Analytics
 
-`<img src="docs/screenshots/pharmacy/11-reports-analytics.png" alt="Reports & Analytics" width="100%">`{=html}
+The pharmacy reporting layer covers sales, medicine-wise sales, stock
+status, expiry, low-stock, and dispensing reports with CSV export.
 
-## Inventory Log & Audit Log
-
-`<img src="docs/screenshots/pharmacy/12-inventory-audit-log.png" alt="Inventory Log & Audit Log" width="100%">`{=html}
+![Pharmacy Reports](docs/screenshots/pharmacy/06-reports.png)
 </details>
 
 ---
