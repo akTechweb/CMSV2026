@@ -72,120 +72,38 @@ The Doctor workspace provides tools for managing clinical activities.
 /doctor/patient-search
 ```
 
----
-
-## 2. Reception Module
-
-The Reception module manages front-desk and patient-flow operations.
-
-### Features
-
-* Reception dashboard
-* Patient registration
-* Patient search and management
-* Appointment management
-* Patient visits
-* Billing information
-* Operational reports
-
-### Routes
-
-```text
-/reception/dashboard
-/reception/register-patient
-/reception/patients
-/reception/appointments
-/reception/bills
-/reception/visits
-/reception/reports
-```
-
 <details open>
-<summary><strong>View all 17 Receptionist screens</strong></summary>
+<summary><strong>View all 8 Doctor screens</strong></summary>
 
-### 01 — Dashboard
-![Receptionist Dashboard](docs/screenshots/receptionist/01-dashboard.png)
+### 01 — Doctor Dashboard
+![Doctor Dashboard](docs/screenshots/doctor/01-dashboard.png)
 
-### 02 — Quick Patient Search
-![Quick Patient Search](docs/screenshots/receptionist/02-quick-patient-search.png)
+### 02 — Appointments Queue
+![Appointments Queue](docs/screenshots/doctor/02-appointments-queue.png)
 
-### 03 — Find Patient for Appointment
-![Find Patient](docs/screenshots/receptionist/03-find-patient.png)
+### 03 — Consultation: Patient Intake
+![Consultation Intake](docs/screenshots/doctor/03-consultation-intake.png)
 
-### 04 — Choose Appointment Slot
-![Choose Slot](docs/screenshots/receptionist/04-choose-slot.png)
+### 04 — Lab Tests & Prescription
+![Lab Tests and Prescription](docs/screenshots/doctor/04-lab-tests-prescription.png)
 
-### 05 — Appointment Booked Confirmation
-![Appointment Confirmation](docs/screenshots/receptionist/05-appointment-confirmation.png)
+### 05 — Consultation Summary
+![Consultation Summary](docs/screenshots/doctor/05-consultation-summary.png)
 
-### 06 — Patient Registration: Personal Details
-![Registration Personal Details](docs/screenshots/receptionist/06-registration-personal.png)
+### 06 — Downloadable Consultation Report
+![Consultation PDF](docs/screenshots/doctor/06-consultation-pdf.png)
 
-### 07 — Patient Registration: Contact Details
-![Registration Contact Details](docs/screenshots/receptionist/07-registration-contact.png)
+### 07 — Patient History Search
+![Patient History Search](docs/screenshots/doctor/07-patient-history-search.png)
 
-### 08 — Registration Confirmation
-![Registration Confirmation](docs/screenshots/receptionist/08-registration-confirmation.png)
-
-### 09 — Appointment for New Patient
-![New Patient Appointment](docs/screenshots/receptionist/09-new-patient-appointment.png)
-
-### 10 — Second Appointment Booked
-![Second Appointment](docs/screenshots/receptionist/10-second-appointment.png)
-
-### 11 — Create Bill from Appointment
-![Create Bill](docs/screenshots/receptionist/11-create-bill.png)
-
-### 12 — Bill Details & Payment History
-![Bill Details](docs/screenshots/receptionist/12-bill-payment-history.png)
-
-### 13 — Printable Invoice
-![Printable Invoice](docs/screenshots/receptionist/13-printable-invoice.png)
-
-### 14 — Reports Dashboard
-![Reports Dashboard](docs/screenshots/receptionist/14-reports-dashboard.png)
-
-### 15 — Patient Visits Log
-![Patient Visits](docs/screenshots/receptionist/15-patient-visits.png)
-
-### 16 — Patients Directory
-![Patients Directory](docs/screenshots/receptionist/16-patients-directory.png)
-
-### 17 — Patient Edit & Audit
-![Patient Edit and Audit](docs/screenshots/receptionist/17-patients-edit-audit.png)
+### 08 — Patient History & Lab Results
+![Patient History Lab Results](docs/screenshots/doctor/08-patient-history-lab-results.png)
 
 </details>
 
 ---
 
-## 3. Laboratory Module
-
-The Laboratory workspace supports the lifecycle of diagnostic requests and results.
-
-### Features
-
-* Laboratory dashboard
-* Pending test management
-* Test result entry
-* Patient search
-* Laboratory billing
-* Laboratory reports
-* Test/request tracking
-
-### Routes
-
-```text
-/lab/dashboard
-/lab/pending-tests
-/lab/results/:requestItemId
-/lab/billing
-/lab/reports
-/lab/patient-search
-```
-
----
-
-## 4. Pharmacy Module
+## 2. Pharmacy Module
 
 The Pharmacy module provides end-to-end medicine and pharmacy operations.
 
@@ -233,7 +151,182 @@ The Pharmacy module provides end-to-end medicine and pharmacy operations.
 /pharmacy/audit-log
 ```
 
+<details open>
+<summary><strong>View all Pharmacy UI screenshots</strong></summary>
+
+## Dashboard
+![Pharmacy Dashboard](docs/screenshots/pharmacy/01-dashboard.png)
+
+## Medicine Catalogue
+![Medicine Catalogue](docs/screenshots/pharmacy/02-medicine-catalogue.png)
+
+## Medicine Management — Add
+![Add Medicine](docs/screenshots/pharmacy/03-add-medicine.png)
+
+## Medicine Management — Edit
+![Edit Medicine](docs/screenshots/pharmacy/04-edit-medicine.png)
+
+## Stock Inventory
+![Stock Inventory](docs/screenshots/pharmacy/05-stock-inventory.png)
+
+## Stock Management — Add Batch
+![Add Stock Batch](docs/screenshots/pharmacy/06-add-stock-batch.png)
+
+## Stock Management — Edit Batch
+![Edit Stock Batch](docs/screenshots/pharmacy/07-edit-stock-batch.png)
+
+## Prescription List
+![Prescription List](docs/screenshots/pharmacy/08-prescription-list.png)
+
+## Prescription Detail
+![Prescription Detail](docs/screenshots/pharmacy/09-prescription-detail.png)
+
+## Dispensing Queue
+![Dispensing Queue](docs/screenshots/pharmacy/10-dispensing-queue.png)
+
+## Confirm Dispense & Bill
+![Confirm Dispense and Bill](docs/screenshots/pharmacy/11-confirm-dispense-bill.png)
+
+## Dispensing History
+![Dispensing History](docs/screenshots/pharmacy/12-dispensing-history.png)
+
+## OTC Pharmacy Bill
+![OTC Pharmacy Bill](docs/screenshots/pharmacy/13-otc-pharmacy-bill.png)
+
+## Bill Detail
+![Bill Detail](docs/screenshots/pharmacy/14-bill-detail.png)
+
+## PDF Invoice
+![PDF Invoice](docs/screenshots/pharmacy/15-pdf-invoice.png)
+
+## Reports Dashboard
+![Reports Dashboard](docs/screenshots/pharmacy/16-reports-dashboard.png)
+
+## Audit Log
+![Audit Log](docs/screenshots/pharmacy/17-audit-log.png)
+
+## Inventory Log
+![Inventory Log](docs/screenshots/pharmacy/18-inventory-log.png)
+
+</details>
+
 ---
+
+## 3. Reception Module
+
+The Reception module manages front-desk and patient-flow operations.
+
+### Features
+
+* Reception dashboard
+* Patient registration
+* Patient search and management
+* Appointment management
+* Patient visits
+* Billing information
+* Operational reports
+
+### Routes
+
+```text
+/reception/dashboard
+/reception/register-patient
+/reception/patients
+/reception/appointments
+/reception/bills
+/reception/visits
+/reception/reports
+```
+
+<details open>
+<summary><strong>View all 17 Receptionist screens</strong></summary>
+
+### 01 — Dashboard
+![Receptionist Dashboard](docs/screenshots/receptionist/01-dashboard.png)
+
+### 02 — Quick Patient Search
+![Quick Patient Search](docs/screenshots/receptionist/02-quick-patient-search.png)
+
+
+### 04 — Choose Appointment Slot
+![Choose Slot](docs/screenshots/receptionist/04-choose-slot.png)
+
+### 09 — Appointment for New Patient
+![New Patient Appointment](docs/screenshots/receptionist/09-new-patient-appointment.png)
+
+
+### 11 — Create Bill from Appointment
+![Create Bill](docs/screenshots/receptionist/11-create-bill.png)
+
+### 12 — Bill Details & Payment History
+![Bill Details](docs/screenshots/receptionist/12-bill-payment-history.png)
+
+### 13 — Printable Invoice
+![Printable Invoice](docs/screenshots/receptionist/13-printable-invoice.png)
+
+### 15 — Patient Visits Log
+![Patient Visits](docs/screenshots/receptionist/15-patient-visits.png)
+
+
+</details>
+
+---
+
+## 4. Laboratory Module
+
+The Laboratory workspace supports the lifecycle of diagnostic requests and results.
+
+### Features
+
+* Laboratory dashboard
+* Pending test management
+* Test result entry
+* Patient search
+* Laboratory billing
+* Laboratory reports
+* Test/request tracking
+
+### Routes
+
+```text
+/lab/dashboard
+/lab/pending-tests
+/lab/results/:requestItemId
+/lab/billing
+/lab/reports
+/lab/patient-search
+```
+
+<details open>
+<summary><strong>View all 10 Laboratory screens</strong></summary>
+
+### 01 — Lab Technician Login
+![Lab Login](docs/screenshots/lab/10-login.png)
+
+### 02 — Lab Dashboard
+![Lab Dashboard](docs/screenshots/lab/01-dashboard.jpeg)
+
+### 03 — Pending Tests
+![Pending Tests](docs/screenshots/lab/02-pending-tests.jpeg)
+
+### 04 — Enter Lab Result
+![Enter Lab Result](docs/screenshots/lab/03-enter-result.jpeg)
+
+
+### 07 — Lab Bill Detail
+![Lab Bill Detail](docs/screenshots/lab/06-billing-detail.jpeg)
+
+
+
+### 09 — Laboratory Report Detail
+![Laboratory Report Detail](docs/screenshots/lab/08-report-detail.jpeg)
+
+
+</details>
+
+---
+
+
 
 # Architecture
 
