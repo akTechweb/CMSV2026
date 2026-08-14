@@ -100,6 +100,62 @@ The Reception module manages front-desk and patient-flow operations.
 /reception/reports
 ```
 
+<details open>
+<summary><strong>View all 17 Receptionist screens</strong></summary>
+
+### 01 — Dashboard
+![Receptionist Dashboard](docs/screenshots/receptionist/01-dashboard.png)
+
+### 02 — Quick Patient Search
+![Quick Patient Search](docs/screenshots/receptionist/02-quick-patient-search.png)
+
+### 03 — Find Patient for Appointment
+![Find Patient](docs/screenshots/receptionist/03-find-patient.png)
+
+### 04 — Choose Appointment Slot
+![Choose Slot](docs/screenshots/receptionist/04-choose-slot.png)
+
+### 05 — Appointment Booked Confirmation
+![Appointment Confirmation](docs/screenshots/receptionist/05-appointment-confirmation.png)
+
+### 06 — Patient Registration: Personal Details
+![Registration Personal Details](docs/screenshots/receptionist/06-registration-personal.png)
+
+### 07 — Patient Registration: Contact Details
+![Registration Contact Details](docs/screenshots/receptionist/07-registration-contact.png)
+
+### 08 — Registration Confirmation
+![Registration Confirmation](docs/screenshots/receptionist/08-registration-confirmation.png)
+
+### 09 — Appointment for New Patient
+![New Patient Appointment](docs/screenshots/receptionist/09-new-patient-appointment.png)
+
+### 10 — Second Appointment Booked
+![Second Appointment](docs/screenshots/receptionist/10-second-appointment.png)
+
+### 11 — Create Bill from Appointment
+![Create Bill](docs/screenshots/receptionist/11-create-bill.png)
+
+### 12 — Bill Details & Payment History
+![Bill Details](docs/screenshots/receptionist/12-bill-payment-history.png)
+
+### 13 — Printable Invoice
+![Printable Invoice](docs/screenshots/receptionist/13-printable-invoice.png)
+
+### 14 — Reports Dashboard
+![Reports Dashboard](docs/screenshots/receptionist/14-reports-dashboard.png)
+
+### 15 — Patient Visits Log
+![Patient Visits](docs/screenshots/receptionist/15-patient-visits.png)
+
+### 16 — Patients Directory
+![Patients Directory](docs/screenshots/receptionist/16-patients-directory.png)
+
+### 17 — Patient Edit & Audit
+![Patient Edit and Audit](docs/screenshots/receptionist/17-patients-edit-audit.png)
+
+</details>
+
 ---
 
 ## 3. Laboratory Module
