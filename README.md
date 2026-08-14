@@ -1059,8 +1059,3 @@ The project is particularly useful as a portfolio demonstration of **Angular app
 Built as a full-stack healthcare management application demonstrating modern Angular development, modular frontend architecture, API integration, role-based workflows, and relational data management.
 
 ---
-
-## ⭐ If You Find This Project Useful
-
-If this repository helped you understand Angular architecture, role-based applications, healthcare workflow design, or full-stack development, consider giving it a ⭐ on GitHub.
-
