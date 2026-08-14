@@ -1,613 +1,564 @@
-#  CMS — Clinic Management System
+# InfinityCoderzz CMS --- Clinic Management System
 
-> A full-stack, role-based Clinic Management System connecting Reception, Doctor, Laboratory, and Pharmacy workflows.
+> A full-stack, role-based Clinic Management System built with Angular 20, ASP.NET Core Web API, C#, and Microsoft SQL Server.
 
-## 📌 Project at a Glance
+InfinityCoderzz CMS connects four operational modules into one clinic
+workflow:
 
+**Doctor → Receptionist → Laboratory → Pharmacy**
 
-[![Angular](https://img.shields.io/badge/Angular-19-DD0031?logo=angular&logoColor=white)](https://angular.dev/)
-[![ASP.NET Core](https://img.shields.io/badge/ASP.NET%20Core-Web%20API-512BD4?logo=dotnet&logoColor=white)](https://dotnet.microsoft.com/apps/aspnet)
-[![C%23](https://img.shields.io/badge/C%23-Backend-239120?logo=csharp&logoColor=white)](https://dotnet.microsoft.com/languages/csharp)
-[![SQL Server](https://img.shields.io/badge/SQL%20Server-Database-CC2927?logo=microsoftsqlserver&logoColor=white)](https://www.microsoft.com/sql-server)
-[![Dapper](https://img.shields.io/badge/Dapper-Data%20Access-512BD4)](https://github.com/DapperLib/Dapper)
+The supplied project walkthrough documents **8 Doctor screens, 17
+Receptionist screens, 10 Laboratory screens, and 10 Pharmacy screens**,
+covering appointments, consultation, patient registration, diagnostics,
+medicine inventory, dispensing, billing, and reporting.
 
----
+------------------------------------------------------------------------
 
-## Overview
+## ✨ Why this project stands out
 
-InfinityCoderzz CMS V2026 is a multi-role healthcare operations platform designed around connected real-world workflows rather than isolated CRUD screens.
+-   Role-based access for Doctor, Receptionist, Lab, and Pharmacist
+    users
+-   Angular frontend with route-guarded module access
+-   ASP.NET Core Web API backend
+-   Session-based authentication
+-   Repository + Service architecture
+-   SQL Server with stored-procedure-driven database operations
+-   Cross-module patient, appointment, prescription, laboratory, and
+    billing workflows
+-   PDF generation with QuestPDF
+-   Dashboard analytics with Chart.js
+-   Pharmacy inventory and expiry tracking
+-   FEFO medicine dispensing
+-   Atomic dispensing/billing transaction
+-   Audit and inventory logs
+-   CSV report export
 
-The system brings together:
+The project walkthrough describes a shared architecture across all four
+modules, including Angular, ASP.NET Core Web API, SQL Server stored
+procedures, session authentication, QuestPDF, and reporting.
 
-- **Receptionist operations** — patient registration, appointments, visits, billing, invoices, and reporting
-- **Doctor operations** — appointment queue, consultation, laboratory orders, prescriptions, reports, and patient history
-- **Laboratory operations** — pending tests, result entry, laboratory billing, completed reports, and patient search
-- **Pharmacy operations** — medicine catalogue, batch inventory, prescription processing, FEFO dispensing, billing, reporting, inventory logs, and audit logs
+------------------------------------------------------------------------
 
-The project materials document **4 core modules, 45+ application screens, 37+ API endpoints, and 6 report types**.
+# 🏗️ High-Level Workflow
 
----
-
-## Product Workflow
-
-```text
-                         ┌─────────────────────┐
-                         │   Authentication     │
-                         │  Role-based Access   │
-                         └──────────┬──────────┘
-                                    │
-             ┌──────────────────────┼──────────────────────┐
-             │                      │                      │
-             ▼                      ▼                      ▼
-      ┌─────────────┐       ┌─────────────┐       ┌─────────────┐
-      │ Reception   │       │   Doctor    │       │ Laboratory  │
-      │             │       │             │       │             │
-      │ Registration│──────►│ Consultation│──────►│ Test/Result │
-      │ Appointment │       │ Prescription│       │ Billing     │
-      │ Billing     │       │ Lab Orders  │       │ Reports     │
-      └─────────────┘       └──────┬──────┘       └─────────────┘
-                                   │
-                                   │ Prescription
-                                   ▼
-                            ┌──────────────┐
-                            │   Pharmacy   │
-                            │              │
-                            │ Medicines    │
-                            │ Stock        │
-                            │ FEFO         │
-                            │ Dispensing   │
-                            │ Billing      │
-                            │ Reporting    │
-                            └──────┬───────┘
-                                   │
-                                   ▼
-                            ┌──────────────┐
-                            │ SQL Server   │
-                            │ Stored Procs │
-                            └──────────────┘
+``` text
+                         ┌─────────────────┐
+                         │  Authentication │
+                         └────────┬────────┘
+                                  │
+             ┌────────────────────┼────────────────────┐
+             │                    │                    │
+             ▼                    ▼                    ▼
+      ┌─────────────┐     ┌─────────────┐     ┌─────────────┐
+      │ Reception   │     │   Doctor    │     │     Lab     │
+      │             │     │             │     │             │
+      │ Registration│────►│ Consultation│────►│ Lab Tests   │
+      │ Appointment │     │ Prescription│     │ Results     │
+      │ Billing     │     │ History     │     │ Billing     │
+      └─────────────┘     └──────┬──────┘     └─────────────┘
+                                 │
+                                 │ Prescription
+                                 ▼
+                          ┌──────────────┐
+                          │   Pharmacy   │
+                          │              │
+                          │ Medicines    │
+                          │ Stock        │
+                          │ FEFO         │
+                          │ Dispensing   │
+                          │ Billing      │
+                          │ Reports      │
+                          └──────┬───────┘
+                                 │
+                                 ▼
+                          ┌──────────────┐
+                          │ SQL Server   │
+                          │ Stored Procs │
+                          └──────────────┘
 ```
 
----
+------------------------------------------------------------------------
 
-# Architecture
+# 📸 Module Screenshots
 
-```text
-┌─────────────────────────────────────────────┐
-│              Angular Frontend               │
-│ TypeScript · RxJS · Forms · Route Guards    │
-└──────────────────────┬──────────────────────┘
-                       │ HTTP / REST
-                       ▼
-┌─────────────────────────────────────────────┐
-│           ASP.NET Core Web API              │
-│ Controllers · Session Auth · C#             │
-└──────────────────────┬──────────────────────┘
-                       ▼
-┌─────────────────────────────────────────────┐
-│               Service Layer                 │
-│        Business Logic / Interfaces          │
-└──────────────────────┬──────────────────────┘
-                       ▼
-┌─────────────────────────────────────────────┐
-│             Repository Layer                │
-│           Data Access / Dapper              │
-└──────────────────────┬──────────────────────┘
-                       ▼
-┌─────────────────────────────────────────────┐
-│              Microsoft SQL Server           │
-│        Relational Data / Stored Procedures  │
-└─────────────────────────────────────────────┘
-```
+The screenshots below are selected from the supplied CMS V2026 project
+walkthrough and focus on the most important user journeys rather than
+every individual screen.
 
-### Architectural characteristics
+------------------------------------------------------------------------
 
-- Role-based access with dedicated workflows
-- Angular route guards and HTTP interceptors
-- ASP.NET Core Web API
-- Service and repository separation
-- Dapper-based data access
-- SQL Server stored procedures
-- Session-based authentication
-- Server-side PDF generation with QuestPDF
-- Dashboard/report visualization with Chart.js
-- Inventory and audit logging
+## 🛎️ Receptionist Module
 
----
+**17 screens · `/reception`**
 
-# Technology Stack
+The receptionist workflow covers the front desk: dashboard, patient
+registration, appointment booking, billing/invoice, reports, visits, and
+patient directory.
 
-| Layer | Technology |
-|---|---|
-| Frontend | Angular 19, TypeScript |
-| UI | Bootstrap |
-| Reactive Programming | RxJS |
-| Routing & Access | Angular Router, Route Guards, HTTP Interceptors |
-| Backend | ASP.NET Core Web API |
-| Language | C# |
-| Data Access | Dapper, SQL Server Stored Procedures |
-| Database | Microsoft SQL Server |
-| Authentication | Session-based role authentication |
-| PDF Generation | QuestPDF |
-| Analytics | Chart.js |
-| Reporting | CSV export + dashboard analytics |
+### Dashboard & Patient Search
 
-> Keep version numbers synchronized with the versions committed in the repository.
+The dashboard provides patient/appointment/collection summaries and
+quick patient lookup.
 
----
+![Receptionist
+Dashboard](docs/screenshots/receptionist/01-dashboard.png)
 
-# Role-Based Access
+### Patient Registration
 
-The platform provides dedicated experiences for:
+Registration generates an MMR patient code and captures personal/contact
+information before confirmation.
 
-| Role | Primary Responsibilities |
-|---|---|
-| **Receptionist** | Patient registration, appointments, visits, billing, reports |
-| **Doctor** | Appointments, consultation, lab orders, prescriptions, history |
-| **Lab Technician** | Pending tests, results, billing, reports, patient search |
-| **Pharmacist** | Medicines, stock, prescriptions, dispensing, billing, reports |
+![Patient
+Registration](docs/screenshots/receptionist/02-registration.png)
 
-The application uses a shared login flow followed by role-specific access and dashboards.
+### Appointment Booking
 
+Appointments can be filtered, created for a patient, assigned to a
+department/doctor, and booked into an available slot.
 
----
+![Appointment
+Booking](docs/screenshots/receptionist/03-appointments.png)
 
-# 🛎️ Receptionist Module
+### Billing & Invoice
 
-The Receptionist module manages the front-desk workflow from patient registration and appointment scheduling through billing, invoices, visits, reports, and patient-directory operations.
+Completed appointments can flow into billing, payment history, and
+printable/downloadable invoice generation.
 
+![Reception Billing](docs/screenshots/receptionist/04-billing.png)
 
+### Reports, Visits & Patient Directory
 
-## Dashboard — Quick Patient Search
+The module also provides filterable reporting, visit history, and a
+searchable patient directory.
 
-![Dashboard — Quick Patient Search](docs/screenshots/receptionist/02-quick-patient-search.png)
+![Reception Reports](docs/screenshots/receptionist/05-reports.png)
 
+------------------------------------------------------------------------
 
-## Book Appointment — Choose Slot
+## 🩺 Doctor Module
 
-![Book Appointment — Choose Slot](docs/screenshots/receptionist/04-choose-slot.png)
+**8 screens · `/doctor`**
 
+The doctor workflow covers appointments, consultation, lab orders,
+prescriptions, consultation reports, and patient history.
 
-## Create Bill from Appointment
+### Dashboard & Appointment Queue
 
-![Create Bill from Appointment](docs/screenshots/receptionist/11-create-bill.png)
-
-## Bill Details & Payment History
-
-![Bill Details & Payment History](docs/screenshots/receptionist/12-bill-payment-history.png)
-
-## Printable Invoice
-
-![Printable Invoice](docs/screenshots/receptionist/13-printable-invoice.png)
-
-
-## Patient Visits Log
-
-![Patient Visits Log](docs/screenshots/receptionist/15-patient-visits.png)
-
-
-### Receptionist workflow
-
-```text
-Register Patient
-      ↓
-Book Appointment
-      ↓
-Manage Visits
-      ↓
-Create Bill
-      ↓
-Payment / Invoice
-      ↓
-Reports / Patient Directory
-```
-
----
-
-# 💊 Pharmacy Module
-
-The Pharmacy module manages medication operations from medicine catalogue and batch inventory through prescription processing, FEFO dispensing, billing, reporting, and traceability.
-
-## Pharmacy Dashboard
-
-![Pharmacy Dashboard](docs/screenshots/pharmacy/01-pharmacy-dashboard.png)
-
-## Medicine Catalogue
-
-![Medicine Catalogue](docs/screenshots/pharmacy/02-medicine-catalogue.png)
-
-## Medicine Management
-
-![Medicine Management](docs/screenshots/pharmacy/03-medicine-management.png)
-
-## Stock Inventory
-
-![Stock Inventory](docs/screenshots/pharmacy/04-stock-inventory.png)
-
-## Stock Management
-
-![Stock Management](docs/screenshots/pharmacy/05-stock-management.png)
-
-## Prescription Management
-
-![Prescription Management](docs/screenshots/pharmacy/06-prescription-management.png)
-
-## Medicine Dispensing — Core Flow
-
-![Medicine Dispensing — Core Flow](docs/screenshots/pharmacy/07-medicine-dispensing-core-flow.png)
-
-
-## Dispensing History & OTC Billing
-
-![Dispensing History & OTC Billing](docs/screenshots/pharmacy/09-dispensing-history-otc-billing.png)
-
-## Billing System & PDF Invoice
-
-![Billing System & PDF Invoice](docs/screenshots/pharmacy/10-billing-system-pdf-invoice.png)
-
-## Reports & Analytics
-
-![Reports & Analytics](docs/screenshots/pharmacy/11-reports-analytics.png)
-
-## Inventory Log & Audit Log
-
-![Inventory Log & Audit Log](docs/screenshots/pharmacy/12-inventory-audit-log.png)
-
----
-
-## FEFO Dispensing
-
-The pharmacy workflow applies **FEFO (First Expired, First Out)** so earlier-expiring medicine batches are selected before later-expiring stock.
-
-```text
-Medicine Batches
-      ↓
-Sort by Expiry Date
-      ↓
-Select Earliest Expiry
-      ↓
-Deduct Required Quantity
-      ↓
-Continue to Next Batch if Required
-```
-
-## Atomic Dispensing Workflow
-
-The documented dispensing workflow groups related operations into a database transaction so a failure can roll back the operation rather than leaving partially updated dispensing, stock, billing, or prescription state.
-
-```text
-Create Dispensing
-       ↓
-Validate / Deduct Stock
-       ↓
-Create Dispensing Items
-       ↓
-Create Bill
-       ↓
-Create Bill Items
-       ↓
-Update Prescription
-       ↓
-Link Prescription & Bill
-```
-
-## Inventory & Audit Traceability
-
-The Pharmacy workflow includes inventory and audit logging for operational traceability, including stock movements and pharmacist actions.
-
----
-
-
-# 🩺 Doctor Module
-
-The Doctor module supports the clinical workflow from appointment queue through patient intake, consultation, laboratory orders, prescriptions, reports, and patient history.
-
-## Dashboard
+The doctor dashboard provides today's appointment count and shortcuts
+into the appointment queue and patient history.
 
 ![Doctor Dashboard](docs/screenshots/doctor/01-dashboard.png)
 
-## Appointments Queue
+### Consultation, Lab Tests & Prescription
 
-![Appointments Queue](docs/screenshots/doctor/02-appointments-queue.png)
+The consultation workflow captures symptoms, diagnosis, notes, follow-up
+dates, lab tests, and prescription items.
 
-## Consultation — Patient Intake
+![Doctor Consultation](docs/screenshots/doctor/02-consultation.png)
 
-![Consultation — Patient Intake](docs/screenshots/doctor/03-consultation-intake.png)
+### Consultation Summary & PDF Report
 
-## Laboratory Tests & Prescription
+The doctor can review the consultation and export a timestamped PDF
+containing the clinical summary and medicine list.
 
-![Laboratory Tests & Prescription](docs/screenshots/doctor/04-lab-tests-prescription.png)
+![Doctor Report](docs/screenshots/doctor/03-report.png)
 
-## Consultation Summary
+### Patient History & Lab Results
 
-![Consultation Summary](docs/screenshots/doctor/05-consultation-summary.png)
+Patient history can be searched by MMR code, with access to previous
+laboratory results and their status.
 
-## Downloadable Consultation Report
+![Patient History](docs/screenshots/doctor/04-history.png)
 
-![Downloadable Consultation Report](docs/screenshots/doctor/06-consultation-pdf.png)
+------------------------------------------------------------------------
 
+## 🧪 Laboratory Module
 
-## Patient History — Laboratory Results
+**10 screens · `/lab`**
 
-![Patient History — Laboratory Results](docs/screenshots/doctor/08-patient-history-lab-results.png)
+The laboratory workflow covers dashboard operations, pending tests,
+result entry, billing, completed reports, and patient search.
 
-### Doctor workflow
+### Lab Dashboard
 
-```text
-Appointment Queue
-       ↓
-Patient Intake
-       ↓
-Consultation
-   ┌───┴─────────────┐
-   ▼                 ▼
-Lab Orders       Prescription
-   ▼                 ▼
-Laboratory        Pharmacy
-   └───────┬─────────┘
-           ▼
-Consultation Summary
-           ↓
-     PDF / Patient History
+The dashboard summarizes pending, completed, in-process, and sample
+information, with a workload visualization.
+
+![Lab Dashboard](docs/screenshots/lab/01-dashboard.png)
+
+### Pending Tests & Result Entry
+
+Lab technicians can work from a pending-test queue and enter the result,
+observation, and remarks for each ordered test.
+
+![Lab Results](docs/screenshots/lab/02-results.png)
+
+### Laboratory Billing
+
+Completed tests can be converted into bills, with bill status and
+itemized bill details.
+
+![Lab Billing](docs/screenshots/lab/03-billing.png)
+
+### Completed Reports & Patient Search
+
+Completed reports show results, abnormal flags, ordering doctor,
+reference ranges, and patient-search functionality.
+
+![Lab Reports](docs/screenshots/lab/04-reports.png)
+
+------------------------------------------------------------------------
+
+## 💊 Pharmacy Module
+
+**10 screens · `/pharmacy`**
+
+The pharmacy module manages the medication lifecycle from stock intake
+through prescription dispensing, billing, analytics, inventory logs, and
+audit logs.
+
+### Pharmacy Dashboard
+
+The dashboard combines live KPIs, revenue/dispensing charts, low-stock
+alerts, and expiring-stock alerts.
+
+![Pharmacy Dashboard](docs/screenshots/pharmacy/01-dashboard.png)
+
+### Medicine Management
+
+Medicines support creation/editing, generated medicine codes,
+validation, and soft disabling instead of physical deletion.
+
+![Medicine Management](docs/screenshots/pharmacy/02-medicines.png)
+
+### Stock & Batch Management
+
+Medicine stock is tracked by batch, quantity, purchase date, expiry
+date, and reorder status, with low-stock and expiry views.
+
+![Stock Management](docs/screenshots/pharmacy/03-stock.png)
+
+### Prescription & FEFO Dispensing
+
+Prescription dispensing performs a stock check, uses **FEFO (First
+Expired First Out)**, creates the bill, and updates prescription state.
+The documented flow runs as an atomic seven-step database transaction
+with rollback on failure.
+
+![Medicine Dispensing](docs/screenshots/pharmacy/04-dispensing.png)
+
+### Billing & PDF Invoice
+
+Pharmacy billing supports bill details, invoice printing/download,
+cancellation, and prescription linkage; PDF invoices are generated with
+QuestPDF.
+
+![Pharmacy Billing](docs/screenshots/pharmacy/05-billing.png)
+
+### Reports & Analytics
+
+The pharmacy reporting layer includes sales summary, medicine-wise
+sales, stock status, expiry, low-stock, and dispensing reports, with CSV
+export.
+
+![Pharmacy Reports](docs/screenshots/pharmacy/06-reports.png)
+
+------------------------------------------------------------------------
+
+# 🔐 Authentication & Role-Based Access
+
+All four modules use the same role-guarded login flow. The supplied
+walkthrough describes credential validation, server-side session
+creation, and redirection to the appropriate role dashboard.
+
+``` text
+Credentials
+    ↓
+Role Validation
+    ↓
+Server Session
+    ↓
+Role-Based Dashboard
 ```
 
----
+Supported roles:
 
-# 🧪 Laboratory Module
+-   Doctor
+-   Receptionist
+-   Lab
+-   Pharmacist
 
-The Laboratory module manages diagnostic processing from pending test requests through result entry, billing, completed reports, and patient search.
+------------------------------------------------------------------------
 
-The screenshots in this section are the **actual Lab Technician application screenshots supplied for the project**.
+# 🧱 Backend Architecture
 
-## Lab Technician Dashboard
+The pharmacy architecture documentation shows a five-layer structure:
 
-![Lab Technician Dashboard](docs/screenshots/lab/01-dashboard.jpeg)
-
-
-## Enter Laboratory Result
-
-![Enter Laboratory Result](docs/screenshots/lab/03-enter-result.jpeg)
-
-
-## Laboratory Billing — Bill Detail / Payment Status
-
-![Laboratory Billing — Bill Detail / Payment Status](docs/screenshots/lab/06-billing-detail.jpeg)
-
-
-## Laboratory Report Detail
-
-![Laboratory Report Detail](docs/screenshots/lab/08-report-detail.jpeg)
-
-
-
-
-
-### Laboratory workflow
-
-```text
-Doctor Orders Test
-       ↓
-Pending Tests
-       ↓
-Result Entry
-       ↓
-Completed Report
-       ↓
-Laboratory Billing
-       ↓
-Patient Search / Report Lookup
+``` text
+Angular Frontend
+      ↓
+ASP.NET Core Controller
+      ↓
+Service Interface / Implementation
+      ↓
+Repository Interface / Implementation
+      ↓
+SQL Server Stored Procedures
 ```
 
----
+The backend separates controllers, services, and repositories through interfaces and dependency injection, with database operations routed through SQL Server stored procedures.
 
+------------------------------------------------------------------------
 
-# Project Structure
+# 💊 Pharmacy Engineering Highlights
 
-A recommended repository layout is:
+One of the strongest engineering workflows in the project is
+prescription dispensing.
 
-```text
-CMSV2026/
-│
+### FEFO
+
+Medicine batches are ordered by expiry date so the earliest-expiring
+stock is consumed first.
+
+### Atomic transaction
+
+The documented dispensing flow contains seven database steps and rolls
+back the complete operation if any step fails. This prevents partial
+stock/billing state.
+
+### Traceability
+
+Inventory and audit logs record stock movements and pharmacist actions
+such as login, medicine creation, dispensing, billing, and bill
+cancellation.
+
+------------------------------------------------------------------------
+
+# 🛠️ Technology Stack
+
+  -----------------------------------------------------------------------
+  Layer                               Technologies
+  ----------------------------------- -----------------------------------
+  Frontend                            Angular, TypeScript, Standalone
+                                      Components, RxJS, Reactive Forms
+
+  UI / Analytics                      Bootstrap, Chart.js, Font Awesome
+
+  Backend                             ASP.NET Core Web API, C#
+
+  Architecture                        Controller → Service → Repository
+
+  Database                            Microsoft SQL Server
+
+  Data Access                         Microsoft.Data.SqlClient (ADO.NET) / Stored Procedures
+
+  Authentication                      Session-based role authentication
+
+  Documents                           QuestPDF
+
+  Reporting                           Chart.js + CSV Export
+  -----------------------------------------------------------------------
+
+The supplied architecture documentation specifically identifies Angular
+19, ASP.NET Core Web API, SQL Server stored procedures, QuestPDF,
+Chart.js, and session authentication.
+
+> **Note:** Keep the technology versions in this README synchronized
+> with the versions actually present in the committed source
+> repositories.
+
+------------------------------------------------------------------------
+
+# 📂 Repository Layout
+
+``` text
+.
 ├── README.md
-│
 ├── docs/
 │   └── screenshots/
-│       ├── shared/
 │       ├── receptionist/
 │       ├── doctor/
 │       ├── lab/
 │       └── pharmacy/
-│
 ├── frontend/
-│   └── Angular application
-│
 ├── backend/
-│   └── ASP.NET Core Web API
-│
 └── database/
-    └── SQL Server scripts
+    └── ScriptDBFinal.sql
 ```
 
----
+------------------------------------------------------------------------
 
-🚀 Local Development
-Prerequisites
-.NET 8 SDK
-Node.js and npm
-Angular CLI compatible with the project version
-Microsoft SQL Server
-SQL Server Management Studio (SSMS) or another SQL client
-1. Database
+# 🚀 Key Business Workflows
 
-Create/configure the SQL Server database and execute the database script.
+### Patient → Appointment → Consultation
 
+``` text
+Register Patient
+      ↓
+Book Appointment
+      ↓
+Doctor Appointment Queue
+      ↓
+Consultation
+```
+
+### Consultation → Laboratory
+
+``` text
+Doctor
+  ↓
+Order Lab Test
+  ↓
+Lab Pending Queue
+  ↓
+Enter Result
+  ↓
+Completed Report
+```
+
+### Consultation → Pharmacy
+
+``` text
+Doctor
+  ↓
+Prescription
+  ↓
+Pharmacy Prescription Queue
+  ↓
+Stock Check
+  ↓
+FEFO Dispensing
+  ↓
+Pharmacy Bill
+  ↓
+PDF Invoice
+```
+
+------------------------------------------------------------------------
+
+# 📊 Project Scope
+
+  ------------------------------------------------------------------------
+  Module                                     Screens Primary
+                                                     Responsibilities
+  --------------------- ---------------------------- ---------------------
+  Doctor                                           8 Appointments,
+                                                     consultation,
+                                                     prescriptions,
+                                                     patient history
+
+  Receptionist                                    17 Registration,
+                                                     appointments,
+                                                     billing, reports,
+                                                     visits
+
+  Laboratory                                      10 Test intake, results,
+                                                     billing, completed
+                                                     reports
+
+  Pharmacy                                        10 Medicines, stock,
+                                                     dispensing, billing,
+                                                     analytics
+  ------------------------------------------------------------------------
+
+The project walkthrough reports **45+ screens overall**, **37+ API
+endpoints**, and **6 report types** in its closing project summary.
+
+------------------------------------------------------------------------
+
+# 🚀 Local Development
+
+## Prerequisites
+
+- .NET 8 SDK
+- Node.js and npm
+- Angular CLI 20
+- Microsoft SQL Server
+- SQL Server Management Studio (SSMS) or another SQL client
+
+## Database
+
+Create/configure the SQL Server database and execute:
+
+```text
+ScriptDBFinal(6).sql
+```
 
 Configure the database connection using local/environment-specific configuration.
 
-Do not commit database passwords, API keys, SMTP credentials, or other secrets to the repository.
+> **Do not commit database passwords, API keys, SMTP credentials, access tokens, or other secrets to the repository.**
 
-2. Backend — ASP.NET Core Web API
+## Backend — ASP.NET Core Web API
 
-Navigate to the backend project:
+Navigate to the ASP.NET Core Web API project directory and run:
 
-cd <backend-project-directory>
-
-Restore dependencies:
-
+```bash
 dotnet restore
-
-Run the API:
-
 dotnet run
+```
 
-After the API starts, use the URL displayed in the terminal or launch profile.
+Use the HTTPS URL shown by the ASP.NET Core launch profile.
 
 Swagger/OpenAPI is available at:
 
+```text
 https://localhost:<backend-port>/swagger
-3. Frontend — Angular
+```
 
-Navigate to the Angular project:
+## Frontend — Angular
 
-cd <frontend-project-directory>
+Navigate to the Angular project directory and run:
 
-Install dependencies:
-
+```bash
 npm install
-
-Start the Angular development server:
-
 npm start
+```
 
-If the project does not define an npm start script, use:
+The project's `package.json` defines the `start` script for the Angular development server.
 
-ng serve
+Configure the Angular API base URL to match the backend HTTPS URL.
 
 The Angular development server is typically available at:
 
+```text
 http://localhost:4200
-4. Configure API Connection
-
-Configure the Angular application's API base URL to match the backend URL shown when the ASP.NET Core API starts.
-
-For example:
-
-https://localhost:<backend-port>/api
-
-The exact port may vary depending on the local launch profile.
-
-5. Run the Application
-
-Start the backend first:
-
-dotnet run
-
-Then start the Angular frontend:
-
-npm start
-
-Open the Angular application in your browser and sign in using locally configured development credentials.
-
----
-
-## API Documentation
-
-The backend exposes REST endpoints for the application's business modules and is documented through Swagger/OpenAPI when the API is running.
-
-Typical local Swagger URL:
-
-```text
-https://localhost:<backend-port>/swagger
 ```
 
-Use the actual launch port defined by the project rather than hard-coding a production URL.
+# 🔒 Public GitHub Security Checklist
 
----
+Before keeping this repository public:
 
-## Engineering Highlights
+-   [ ] Remove database passwords from committed configuration
+-   [ ] Remove SMTP passwords / app passwords
+-   [ ] Rotate any credential that was previously pushed
+-   [ ] Use environment variables or .NET User Secrets for secrets
+-   [ ] Add development configuration to `.gitignore`
+-   [ ] Remove `node_modules`, `bin`, `obj`, `.vs`, and generated build
+    output
+-   [ ] Check Git history for previously committed secrets
+-   [ ] Enable GitHub secret scanning/push protection where available
 
-### 1. Multi-role application architecture
+**Never commit production credentials, API keys, database passwords,
+SMTP passwords, or tokens to this repository.**
 
-A single platform provides separate workflows for four operational roles while sharing core patient, appointment, clinical, laboratory, billing, and pharmacy data.
+------------------------------------------------------------------------
 
-### 2. Layered backend
+# 📌 Project Status
 
-Controllers, services, repositories, and database operations are separated to keep transport, business logic, and persistence responsibilities distinct.
+**Portfolio / Full-Stack Engineering Project**
 
-### 3. Transaction-aware pharmacy workflow
+This project demonstrates a connected, multi-role business application
+with clinical workflows, transactional billing, laboratory processing,
+pharmacy inventory, FEFO dispensing, reporting, PDF generation, and
+auditability.
 
-The dispensing flow coordinates stock deduction, dispensing records, billing, and prescription state as a transactional workflow.
+------------------------------------------------------------------------
 
-### 4. FEFO inventory logic
+# 👨‍💻 Team InfinityCoderzz
 
-Expiry-aware batch selection helps prioritize earlier-expiring medicines.
+**InfinityCoderzz --- CMS V2026**
 
-### 5. Document generation
+Built with:
 
-The application supports generated clinical/billing documents, including PDF workflows using QuestPDF.
-
-### 6. Operational traceability
-
-Inventory and audit logging provide visibility into pharmacy stock movement and user activity.
-
-### 7. Cross-module workflow design
-
-The system connects:
-
-```text
-Reception
-   ↓
-Doctor
-   ↓
-Laboratory
-   ↓
-Pharmacy
-   ↓
-Billing / Reports / History
-```
-
-This makes the project representative of a business workflow spanning multiple functional domains.
-
----
-
-## Project Scope
-
-| Area | Scope |
-|---|---:|
-| Core modules | **4** |
-| Documented application screens | **45+** |
-| Doctor screens | **8** |
-| Receptionist screens | **17** |
-| Laboratory screens | **10** |
-| Pharmacy | **10 documented sub-modules** |
-| API endpoints | **37+** |
-| Report types | **6** |
-
-
-
-## Project Summary
-
- CMSV2026 demonstrates full-stack engineering across:
-
-- Angular frontend development
-- ASP.NET Core Web API development
-- C# service and repository architecture
-- SQL Server relational data design
-- Stored-procedure-based data operations
-- Role-based application workflows
-- Cross-module business processes
-- Transaction-aware inventory and billing
-- FEFO stock allocation
-- PDF document generation
-- Reporting and analytics
-- Inventory and audit traceability
-
-The project is intended to demonstrate the ability to design and implement a **non-trivial, multi-role business application** from frontend workflows through API services and database operations.
-
----
-
-
-**Full-Stack Clinic Management System**
-
-`Angular` · `TypeScript` · `ASP.NET Core` · `C#` · `SQL Server` · `Dapper` · `QuestPDF` · `Chart.js`
-
----
+`Angular 20` · `ASP.NET Core Web API` · `C#` · `SQL Server` · `QuestPDF` · `Chart.js`
+· `Chart.js`
