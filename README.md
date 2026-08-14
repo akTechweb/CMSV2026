@@ -11,7 +11,7 @@
 
 ## Overview
 
-**InfinityCoderzz CMS** is a full-featured healthcare management system designed to digitize and coordinate day-to-day hospital and clinic operations across multiple user roles.
+**CMS** is a full-featured healthcare management system designed to digitize and coordinate day-to-day hospital and clinic operations across multiple user roles.
 
 The application follows a **role-based modular architecture**, providing separate workflows and dashboards for:
 
