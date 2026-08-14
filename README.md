@@ -1,548 +1,913 @@
-# InfinityCoderzz CMS --- Clinic Management System
-
-> A full-stack, role-based Clinic Management System built with Angular 20, ASP.NET Core Web API, C#, and Microsoft SQL Server.
-
-InfinityCoderzz CMS connects four operational modules into a single clinic workflow:
-
-**Reception → Doctor → Laboratory → Pharmacy**
-
-The project documents **45+ application screens** across four core modules: **8 Doctor screens, 17 Receptionist screens, 10 Laboratory screens, and 10 Pharmacy screens**. The workflows cover appointments, consultation, patient registration, diagnostics, medicine inventory, dispensing, billing, reporting, and patient history.
-
-------------------------------------------------------------------------
-
-## ✨ Why this project stands out
-
--   Role-based access for Doctor, Receptionist, Lab Technician, and Pharmacist
-    users
--   Angular frontend with route-guarded module access
--   ASP.NET Core Web API backend
--   Session-based authentication
--   Repository + Service architecture
--   SQL Server with stored-procedure-driven database operations
--   Cross-module patient, appointment, prescription, laboratory, and
-    billing workflows
--   PDF generation with QuestPDF
--   Dashboard analytics with Chart.js
--   Pharmacy inventory and expiry tracking
--   FEFO medicine dispensing
--   Atomic dispensing/billing transaction
--   Audit and inventory logs
--   CSV report export
+# InfinityCoderzz CMS — Healthcare Management System
 
-The project walkthrough describes a shared architecture across all four
-modules, including Angular, ASP.NET Core Web API, SQL Server stored
-procedures, session authentication, QuestPDF, and reporting.
+> A modular healthcare management platform built with **Angular 20**, **TypeScript**, and a role-based architecture for managing clinical, laboratory, reception, and pharmacy workflows.
 
-------------------------------------------------------------------------
+![Angular](https://img.shields.io/badge/Angular-20-DD0031?logo=angular\&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript\&logoColor=white)
+![RxJS](https://img.shields.io/badge/RxJS-7.8-B7178C?logo=reactivex\&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-4.6-7952B3?logo=bootstrap\&logoColor=white)
+![Chart.js](https://img.shields.io/badge/Chart.js-4.5-FF6384?logo=chart.js\&logoColor=white)
+![SQL Server](https://img.shields.io/badge/SQL%20Server-Database-CC2927?logo=microsoftsqlserver\&logoColor=white)
 
-# 🏗️ High-Level Workflow
+## Overview
 
-``` text
-                         ┌─────────────────┐
-                         │  Authentication │
-                         └────────┬────────┘
-                                  │
-             ┌────────────────────┼────────────────────┐
-             │                    │                    │
-             ▼                    ▼                    ▼
-      ┌─────────────┐     ┌─────────────┐     ┌─────────────┐
-      │ Reception   │     │   Doctor    │     │     Lab     │
-      │             │     │             │     │             │
-      │ Registration│────►│ Consultation│────►│ Lab Tests   │
-      │ Appointment │     │ Prescription│     │ Results     │
-      │ Billing     │     │ History     │     │ Billing     │
-      └─────────────┘     └──────┬──────┘     └─────────────┘
-                                 │
-                                 │ Prescription
-                                 ▼
-                          ┌──────────────┐
-                          │   Pharmacy   │
-                          │              │
-                          │ Medicines    │
-                          │ Stock        │
-                          │ FEFO         │
-                          │ Dispensing   │
-                          │ Billing      │
-                          │ Reports      │
-                          └──────┬───────┘
-                                 │
-                                 ▼
-                          ┌──────────────┐
-                          │ SQL Server   │
-                          │ Stored Procs │
-                          └──────────────┘
-```
+**InfinityCoderzz CMS** is a full-featured healthcare management system designed to digitize and coordinate day-to-day hospital and clinic operations across multiple user roles.
 
-------------------------------------------------------------------------
+The application follows a **role-based modular architecture**, providing separate workflows and dashboards for:
 
-# 📸 Module Screenshots
+* **Doctors**
+* **Lab Technicians**
+* **Receptionists**
+* **Pharmacists**
 
-The screenshots below are selected from the supplied CMS V2026 project
-walkthrough and focus on the most important user journeys rather than
-every individual screen.
+The frontend is implemented using **Angular 20 standalone components**, with centralized services, route guards, HTTP interceptors, reusable UI components, and lazy-loaded feature modules.
 
-------------------------------------------------------------------------
+The system is designed around a session-authenticated Web API and a relational **Microsoft SQL Server** database.
 
-## 🛎️ Receptionist Module
+---
 
-**17 screens · `/reception`**
+## Key Objectives
 
-The receptionist workflow covers the front desk: dashboard, patient
-registration, appointment booking, billing/invoice, reports, visits, and
-patient directory.
+The project focuses on solving common healthcare workflow problems through a centralized application:
 
-### Dashboard & Patient Search
+* Patient registration and management
+* Appointment scheduling and tracking
+* Doctor consultation workflows
+* Laboratory test requests and results
+* Pharmacy inventory management
+* Prescription and medicine dispensing
+* Billing and payment workflows
+* Operational reports and dashboards
+* Audit and inventory tracking
+* Role-based access control
+* PDF-based invoice/report generation
 
-The dashboard provides patient/appointment/collection summaries and
-quick patient lookup.
+The architecture emphasizes **separation of concerns, reusable components, secure route access, maintainability, and extensibility**.
 
-![Receptionist
-Dashboard](docs/screenshots/receptionist/01-dashboard.png)
+---
 
-### Patient Registration
+# Core Modules
 
-Registration generates an MMR patient code and captures personal/contact
-information before confirmation.
+## 1. Doctor Module
 
-![Patient
-Registration](docs/screenshots/receptionist/02-registration.png)
+The Doctor workspace provides tools for managing clinical activities.
 
-### Appointment Booking
+### Features
 
-Appointments can be filtered, created for a patient, assigned to a
-department/doctor, and booked into an available slot.
+* Doctor dashboard
+* Appointment management
+* Patient search
+* Consultation workflow
+* Patient/visit information
+* Laboratory request interaction
+* Consultation notes and follow-up information
+* Role-protected navigation
 
-![Appointment
-Booking](docs/screenshots/receptionist/03-appointments.png)
-
-### Billing & Invoice
-
-Completed appointments can flow into billing, payment history, and
-printable/downloadable invoice generation.
-
-![Reception Billing](docs/screenshots/receptionist/04-billing.png)
-
-### Reports, Visits & Patient Directory
-
-The module also provides filterable reporting, visit history, and a
-searchable patient directory.
-
-![Reception Reports](docs/screenshots/receptionist/05-reports.png)
-
-------------------------------------------------------------------------
-
-## 🩺 Doctor Module
-
-**8 screens · `/doctor`**
-
-The doctor workflow covers appointments, consultation, lab orders,
-prescriptions, consultation reports, and patient history.
-
-### Dashboard & Appointment Queue
-
-The doctor dashboard provides today's appointment count and shortcuts
-into the appointment queue and patient history.
-
-![Doctor Dashboard](docs/screenshots/doctor/01-dashboard.png)
-
-### Consultation, Lab Tests & Prescription
-
-The consultation workflow captures symptoms, diagnosis, notes, follow-up
-dates, lab tests, and prescription items.
-
-![Doctor Consultation](docs/screenshots/doctor/02-consultation.png)
-
-### Consultation Summary & PDF Report
-
-The doctor can review the consultation and export a timestamped PDF
-containing the clinical summary and medicine list.
-
-![Doctor Report](docs/screenshots/doctor/03-report.png)
-
-### Patient History & Lab Results
-
-Patient history can be searched by MMR code, with access to previous
-laboratory results and their status.
-
-![Patient History](docs/screenshots/doctor/04-history.png)
-
-------------------------------------------------------------------------
-
-## 🧪 Laboratory Module
-
-**10 screens · `/lab`**
-
-The laboratory workflow covers dashboard operations, pending tests,
-result entry, billing, completed reports, and patient search.
-
-### Lab Dashboard
-
-The dashboard summarizes pending, completed, in-process, and sample
-information, with a workload visualization.
-
-![Lab Dashboard](docs/screenshots/lab/01-dashboard.png)
-
-### Pending Tests & Result Entry
-
-Lab technicians can work from a pending-test queue and enter the result,
-observation, and remarks for each ordered test.
-
-![Lab Results](docs/screenshots/lab/02-results.png)
-
-### Laboratory Billing
-
-Completed tests can be converted into bills, with bill status and
-itemized bill details.
-
-![Lab Billing](docs/screenshots/lab/03-billing.png)
-
-### Completed Reports & Patient Search
-
-Completed reports show results, abnormal flags, ordering doctor,
-reference ranges, and patient-search functionality.
-
-![Lab Reports](docs/screenshots/lab/04-reports.png)
-
-------------------------------------------------------------------------
-
-## 💊 Pharmacy Module
-
-**10 screens · `/pharmacy`**
-
-The pharmacy module manages the medication lifecycle from stock intake
-through prescription dispensing, billing, analytics, inventory logs, and
-audit logs.
-
-### Pharmacy Dashboard
-
-The dashboard combines live KPIs, revenue/dispensing charts, low-stock
-alerts, and expiring-stock alerts.
-
-![Pharmacy Dashboard](docs/screenshots/pharmacy/01-dashboard.png)
-
-### Medicine Management
-
-Medicines support creation/editing, generated medicine codes,
-validation, and soft disabling instead of physical deletion.
-
-![Medicine Management](docs/screenshots/pharmacy/02-medicines.png)
-
-### Stock & Batch Management
-
-Medicine stock is tracked by batch, quantity, purchase date, expiry
-date, and reorder status, with low-stock and expiry views.
-
-![Stock Management](docs/screenshots/pharmacy/03-stock.png)
-
-### Prescription & FEFO Dispensing
-
-Prescription dispensing performs a stock check, uses **FEFO (First
-Expired First Out)**, creates the bill, and updates prescription state.
-The documented flow runs as an atomic seven-step database transaction
-with rollback on failure.
-
-![Medicine Dispensing](docs/screenshots/pharmacy/04-dispensing.png)
-
-### Billing & PDF Invoice
-
-Pharmacy billing supports bill details, invoice printing/download,
-cancellation, and prescription linkage; PDF invoices are generated with
-QuestPDF.
-
-![Pharmacy Billing](docs/screenshots/pharmacy/05-billing.png)
-
-### Reports & Analytics
-
-The pharmacy reporting layer includes sales summary, medicine-wise
-sales, stock status, expiry, low-stock, and dispensing reports, with CSV
-export.
-
-![Pharmacy Reports](docs/screenshots/pharmacy/06-reports.png)
-
-------------------------------------------------------------------------
-
-# 📘 API Documentation
-
-The ASP.NET Core backend exposes RESTful endpoints for the application's business modules and can be explored through Swagger/OpenAPI while running locally.
+### Routes
 
 ```text
-https://localhost:<backend-port>/swagger
+/doctor/dashboard
+/doctor/appointments
+/doctor/consultation/:appointmentId
+/doctor/patient-search
 ```
 
-Use the actual HTTPS port shown by the ASP.NET Core launch profile.
+---
 
-# 🔐 Authentication & Role-Based Access
+## 2. Reception Module
 
-All four modules use the same role-guarded login flow. The supplied
-walkthrough describes credential validation, server-side session
-creation, and redirection to the appropriate role dashboard.
+The Reception module manages front-desk and patient-flow operations.
 
-``` text
-Credentials
-    ↓
-Role Validation
-    ↓
-Server Session
-    ↓
-Role-Based Dashboard
-```
+### Features
 
-Supported roles:
+* Reception dashboard
+* Patient registration
+* Patient search and management
+* Appointment management
+* Patient visits
+* Billing information
+* Operational reports
 
--   Doctor
--   Receptionist
--   Lab Technician
--   Pharmacist
-
-------------------------------------------------------------------------
-
-# 🧱 Backend Architecture
-
-The pharmacy architecture documentation shows a five-layer structure:
-
-``` text
-Angular Frontend
-      ↓
-ASP.NET Core Controller
-      ↓
-Service Interface / Implementation
-      ↓
-Repository Interface / Implementation
-      ↓
-SQL Server Stored Procedures
-```
-
-The backend separates controllers, services, and repositories through interfaces and dependency injection, with database operations routed through SQL Server stored procedures.
-
-------------------------------------------------------------------------
-
-# 💊 Pharmacy Engineering Highlights
-
-One of the strongest engineering workflows in the project is
-prescription dispensing.
-
-### FEFO
-
-Medicine batches are ordered by expiry date so the earliest-expiring
-stock is consumed first.
-
-### Atomic transaction
-
-The documented dispensing flow contains seven database steps and rolls
-back the complete operation if any step fails. This prevents partial
-stock/billing state.
-
-### Traceability
-
-Inventory and audit logs record stock movements and pharmacist actions
-such as login, medicine creation, dispensing, billing, and bill
-cancellation.
-
-------------------------------------------------------------------------
-
-# 🛠️ Technology Stack
-
-  -----------------------------------------------------------------------
-  Layer                               Technologies
-  ----------------------------------- -----------------------------------
-  Frontend                            Angular, TypeScript, Standalone
-                                      Components, RxJS, Reactive Forms
-
-  UI / Analytics                      Bootstrap, Chart.js, Font Awesome
-
-  Backend                             ASP.NET Core Web API, C#
-
-  Architecture                        Controller → Service → Repository
-
-  Database                            Microsoft SQL Server
-
-  Data Access                         Microsoft.Data.SqlClient (ADO.NET) / Stored Procedures
-
-  Authentication                      Session-based role authentication
-
-  Documents                           QuestPDF
-
-  Reporting                           Chart.js + CSV Export
-  -----------------------------------------------------------------------
-
-The frontend is based on **Angular 20** and the backend targets **.NET 8 / ASP.NET Core Web API**. Database operations use **Microsoft.Data.SqlClient (ADO.NET)** and SQL Server stored procedures.
-
-------------------------------------------------------------------------
-
-# 📂 Repository Contents
-
-The repository contains the application source, database script, and documentation assets. The screenshot paths used by this README are kept under `docs/screenshots/` so GitHub can render them directly.
+### Routes
 
 ```text
-README.md
-docs/
-└── screenshots/
-    ├── receptionist/
-    ├── doctor/
-    ├── lab/
-    └── pharmacy/
+/reception/dashboard
+/reception/register-patient
+/reception/patients
+/reception/appointments
+/reception/bills
+/reception/visits
+/reception/reports
+```
 
-Angular frontend
+---
+
+## 3. Laboratory Module
+
+The Laboratory workspace supports the lifecycle of diagnostic requests and results.
+
+### Features
+
+* Laboratory dashboard
+* Pending test management
+* Test result entry
+* Patient search
+* Laboratory billing
+* Laboratory reports
+* Test/request tracking
+
+### Routes
+
+```text
+/lab/dashboard
+/lab/pending-tests
+/lab/results/:requestItemId
+/lab/billing
+/lab/reports
+/lab/patient-search
+```
+
+---
+
+## 4. Pharmacy Module
+
+The Pharmacy module provides end-to-end medicine and pharmacy operations.
+
+### Features
+
+* Pharmacy dashboard
+* Medicine management
+* Medicine creation and editing
+* Stock management
+* Low-stock monitoring
+* Expiring medicine tracking
+* Expired medicine tracking
+* Prescription management
+* Medicine dispensing
+* Dispensing history
+* Pharmacy billing
+* Invoice generation
+* Inventory logs
+* Audit logs
+* Pharmacy reports
+
+### Routes
+
+```text
+/pharmacy/dashboard
+/pharmacy/medicine
+/pharmacy/medicine/add
+/pharmacy/medicine/edit/:id
+/pharmacy/stock
+/pharmacy/stock/add
+/pharmacy/stock/edit/:id
+/pharmacy/stock/low-stock
+/pharmacy/stock/expiring
+/pharmacy/stock/expired
+/pharmacy/prescription
+/pharmacy/prescription/:id
+/pharmacy/dispensing
+/pharmacy/dispensing/history
+/pharmacy/dispensing/:id/items
+/pharmacy/bills
+/pharmacy/bills/create
+/pharmacy/bills/:id
+/pharmacy/reports
+/pharmacy/inventory-log
+/pharmacy/audit-log
+```
+
+---
+
+# Architecture
+
+The frontend uses a feature-oriented Angular architecture.
+
+```text
+src/app/
+│
+├── auth/
+│   └── login/
+│
+├── doctor/
+│   ├── dashboard/
+│   ├── appointments/
+│   ├── consultation/
+│   └── patient-search/
+│
+├── lab/
+│   ├── dashboard/
+│   ├── pending-tests/
+│   ├── results/
+│   ├── billing/
+│   ├── reports/
+│   └── patient-search/
+│
+├── reception/
+│   ├── dashboard/
+│   ├── patients/
+│   ├── appointments/
+│   ├── visits/
+│   ├── bills/
+│   └── reports/
+│
+├── pharmacy/
+│   ├── dashboard/
+│   ├── medicine/
+│   ├── medicine-add/
+│   ├── medicine-edit/
+│   ├── medicine-stock/
+│   ├── prescription/
+│   ├── dispensing/
+│   ├── billing/
+│   ├── reports/
+│   ├── inventory-log/
+│   └── audit-log/
+│
+├── guards/
+│   ├── auth-guard.ts
+│   └── role-guard.ts
+│
+├── interceptors/
+│   ├── credentials-interceptor.ts
+│   └── unauthorized-interceptor.ts
+│
+├── services/
+│   ├── auth-service.ts
+│   ├── doctor-service.ts
+│   ├── lab-service.ts
+│   ├── reception-service.ts
+│   └── pharmacy-service.ts
+│
+└── shared/
+    ├── animations/
+    ├── count-up/
+    ├── header/
+    ├── notfound/
+    ├── skeleton/
+    ├── stat-card/
+    ├── toast/
+    └── voice-search/
+```
+
+---
+
+# Technology Stack
+
+## Frontend
+
+| Technology       | Purpose                               |
+| ---------------- | ------------------------------------- |
+| Angular 20       | Application framework                 |
+| TypeScript 5.9   | Application development               |
+| RxJS 7.8         | Reactive programming and HTTP streams |
+| Angular Router   | Navigation and protected routes       |
+| Angular Forms    | Form handling and validation          |
+| Bootstrap 4.6    | Responsive UI                         |
+| Font Awesome 4.7 | Icons                                 |
+| Chart.js 4.5     | Dashboard visualization               |
+| jsPDF            | PDF generation                        |
+| jsPDF AutoTable  | Tabular PDF documents                 |
+
+## Backend Integration
+
+The Angular application communicates with a separate **ASP.NET Core Web API**.
+
+The API is accessed through Angular services and configured through environment-specific API URLs.
+
+```text
+Angular Application
+        │
+        │ HTTP / HTTPS
+        ▼
 ASP.NET Core Web API
-SQL Server database script
+        │
+        ▼
+Microsoft SQL Server
 ```
 
-------------------------------------------------------------------------
+---
 
-# 🚀 Key Business Workflows
+# Authentication & Authorization
 
-### Patient → Appointment → Consultation
+The application uses **server-side session authentication with HTTP cookies** rather than JWT-based authentication.
 
-``` text
-Register Patient
-      ↓
-Book Appointment
-      ↓
-Doctor Appointment Queue
-      ↓
-Consultation
+### Authentication flow
+
+```text
+User
+ │
+ ▼
+Login Page
+ │
+ │ POST /api/login
+ ▼
+ASP.NET Core API
+ │
+ │ Session Cookie
+ ▼
+Angular Application
+ │
+ ├── Auth Guard
+ ├── Role Guard
+ └── Credentials Interceptor
+       │
+       ▼
+Protected API Endpoints
 ```
 
-### Consultation → Laboratory
+The application supports four primary roles:
 
-``` text
+```text
 Doctor
-  ↓
-Order Lab Test
-  ↓
-Lab Pending Queue
-  ↓
-Enter Result
-  ↓
-Completed Report
+Lab Technician
+Receptionist
+Pharmacist
 ```
 
-### Consultation → Pharmacy
+Angular route guards prevent unauthorized navigation.
 
-``` text
-Doctor
-  ↓
-Prescription
-  ↓
-Pharmacy Prescription Queue
-  ↓
-Stock Check
-  ↓
-FEFO Dispensing
-  ↓
-Pharmacy Bill
-  ↓
-PDF Invoice
+For example:
+
+```text
+/doctor/*       → Doctor
+/lab/*          → Lab Technician
+/reception/*    → Receptionist
+/pharmacy/*     → Pharmacist
 ```
 
-------------------------------------------------------------------------
+The credentials interceptor ensures authenticated API requests include the required session credentials.
 
-# 📊 Project Scope
+The unauthorized interceptor handles HTTP `401` responses and redirects the user back to the login flow.
 
-| Area | Scope |
-|---|---:|
-| Core modules | **4** |
-| Documented application screens | **45+** |
-| Doctor screens | **8** |
-| Receptionist screens | **17** |
-| Laboratory screens | **10** |
-| Pharmacy screens | **10** |
-| API endpoints | **80+** |
-| Documented report types | **6** |
+> **Important:** Role information stored in `localStorage` is used for client-side navigation and UI behavior only. The server-side session remains the authentication mechanism for API requests.
 
-# 🚀 Local Development
+---
+
+# Database
+
+The supplied SQL Server schema is designed around healthcare operational workflows and contains **32 relational tables**.
+
+Major database domains include:
+
+### Identity & Access
+
+```text
+Users
+Roles
+Staff
+```
+
+### Patients & Clinical Operations
+
+```text
+Patients
+PatientVisits
+Appointments
+Consultations
+Doctors
+Departments
+DoctorSchedules
+DoctorQualifications
+Qualifications
+```
+
+### Laboratory
+
+```text
+LabCategories
+LabTests
+LabRequests
+LabRequestItems
+LabResults
+```
+
+### Pharmacy
+
+```text
+Medicines
+MedicineCategories
+Manufacturers
+MedicineStock
+MedicineInventoryLogs
+Prescriptions
+PrescriptionItems
+MedicineDispensing
+MedicineDispensingItems
+PharmacyBillPrescription
+```
+
+### Billing & Payments
+
+```text
+Bills
+BillItems
+Payments
+```
+
+### Auditing & Notifications
+
+```text
+AuditLogs
+ReportNotifications
+```
+
+The database uses primary keys, foreign-key relationships, unique constraints, identity columns, and relational integrity rules to model dependencies between healthcare entities.
+
+---
+
+# Project Structure
+
+```text
+CMSV2026_Angular_FINAL_INTEGRATED/
+│
+├── public/
+│
+├── src/
+│   ├── app/
+│   │   ├── auth/
+│   │   ├── doctor/
+│   │   ├── lab/
+│   │   ├── pharmacy/
+│   │   ├── reception/
+│   │   ├── guards/
+│   │   ├── interceptors/
+│   │   ├── services/
+│   │   └── shared/
+│   │
+│   ├── environments/
+│   │   ├── environment.ts
+│   │   └── environment.prod.ts
+│   │
+│   ├── main.ts
+│   ├── index.html
+│   └── styles.scss
+│
+├── angular.json
+├── package.json
+├── package-lock.json
+├── tsconfig.json
+└── README.md
+```
+
+---
+
+# Getting Started
 
 ## Prerequisites
 
-- .NET 8 SDK
-- Node.js and npm
-- Angular CLI 20
-- Microsoft SQL Server
-- SQL Server Management Studio (SSMS) or another SQL client
+Install the following before running the application:
 
-## Database
+* **Node.js** — LTS version recommended
+* **npm**
+* **Angular CLI 20**
+* **.NET SDK** compatible with the backend
+* **Microsoft SQL Server**
+* **SQL Server Management Studio (SSMS)** or another SQL client
 
-Create/configure the SQL Server database and execute:
-
-```text
-ScriptDBFinal(6).sql
-```
-
-Configure the database connection using local/environment-specific configuration.
-
-> **Do not commit database passwords, API keys, SMTP credentials, access tokens, or other secrets to the repository.**
-
-## Backend — ASP.NET Core Web API
-
-Navigate to the ASP.NET Core Web API project directory and run:
+Verify the installations:
 
 ```bash
-dotnet restore
-dotnet run
+node --version
+npm --version
+ng version
+dotnet --version
 ```
 
-Use the HTTPS URL shown by the ASP.NET Core launch profile.
+---
 
-Swagger/OpenAPI is available at:
+# Backend Setup
+
+The Angular application expects the ASP.NET Core Web API to be available separately.
+
+The development API URL used by the frontend is:
 
 ```text
-https://localhost:<backend-port>/swagger
+https://localhost:7037/api
 ```
 
-## Frontend — Angular
+If your backend uses a different URL or port, update:
 
-Navigate to the Angular project directory and run:
+```text
+src/environments/environment.ts
+```
+
+Example:
+
+```typescript
+export const environment = {
+  production: false,
+  apiUrl: 'https://localhost:7037/api'
+};
+```
+
+Because the application uses secure session cookies during development, the backend should be run through its HTTPS profile.
+
+For local ASP.NET Core development:
+
+```bash
+dotnet dev-certs https --trust
+dotnet run --launch-profile https
+```
+
+---
+
+# Database Setup
+
+Create a SQL Server database named:
+
+```text
+CMSv2026db
+```
+
+Then execute the supplied SQL script:
+
+```text
+ScriptDBFinal(10).sql
+```
+
+The script creates the application's relational schema, constraints, indexes, and associated database objects.
+
+> Do not commit production credentials, connection strings, passwords, API secrets, or real patient information to the repository.
+
+---
+
+# Frontend Installation
+
+Clone the repository:
+
+```bash
+git clone <YOUR_REPOSITORY_URL>
+cd CMSV2026_Angular_FINAL_INTEGRATED
+```
+
+Install dependencies:
 
 ```bash
 npm install
+```
+
+Start the Angular development server:
+
+```bash
 npm start
 ```
 
-The project's `package.json` defines the `start` script for the Angular development server.
+Or:
 
-Configure the Angular API base URL to match the backend HTTPS URL.
+```bash
+ng serve
+```
 
-The Angular development server is typically available at:
+The application will normally be available at:
 
 ```text
 http://localhost:4200
 ```
 
-# 🔒 Public GitHub Security Checklist
+---
 
-Before keeping this repository public:
+# Production Build
 
--   [ ] Remove database passwords from committed configuration
--   [ ] Remove SMTP passwords / app passwords
--   [ ] Rotate any credential that was previously pushed
--   [ ] Use environment variables or .NET User Secrets for secrets
--   [ ] Add development configuration to `.gitignore`
--   [ ] Remove `node_modules`, `bin`, `obj`, `.vs`, and generated build
-    output
--   [ ] Check Git history for previously committed secrets
--   [ ] Enable GitHub secret scanning/push protection where available
+Create an optimized production build:
 
-**Never commit production credentials, API keys, database passwords,
-SMTP passwords, or tokens to this repository.**
+```bash
+npm run build
+```
 
-------------------------------------------------------------------------
+Angular will generate the production artifacts under:
 
-# 📌 Project Status
+```text
+dist/
+```
 
-**Portfolio / Full-Stack Engineering Project**
+Before deployment, configure:
 
-This project demonstrates a connected, multi-role business application
-with clinical workflows, transactional billing, laboratory processing,
-pharmacy inventory, FEFO dispensing, reporting, PDF generation, and
-auditability.
+```text
+src/environments/environment.prod.ts
+```
 
-------------------------------------------------------------------------
+with the correct production API endpoint.
 
-# 👨‍💻 Team InfinityCoderzz
+Example:
 
-**InfinityCoderzz --- CMS V2026**
+```typescript
+export const environment = {
+  production: true,
+  apiUrl: '/api'
+};
+```
 
-Built with:
+---
 
-`Angular 20` · `ASP.NET Core Web API` · `C#` · `SQL Server` · `QuestPDF` · `Chart.js`
-· `Chart.js`
+# Available NPM Commands
+
+| Command         | Description                            |
+| --------------- | -------------------------------------- |
+| `npm start`     | Start Angular development server       |
+| `npm run build` | Create production build                |
+| `npm run watch` | Build continuously in development mode |
+| `npm test`      | Run Angular unit tests                 |
+| `ng serve`      | Start development server directly      |
+| `ng build`      | Build Angular application directly     |
+
+---
+
+# API Integration
+
+Backend communication is organized through dedicated services rather than embedding API calls directly throughout the UI.
+
+```text
+AuthService
+DoctorService
+LabService
+ReceptionService
+PharmacyService
+PDFExportService
+```
+
+This separation keeps presentation components focused on UI behavior while API communication remains centralized and easier to maintain.
+
+---
+
+# Engineering Practices Demonstrated
+
+This project demonstrates several practices relevant to production-oriented frontend development:
+
+* Feature-based Angular architecture
+* Standalone Angular components
+* Lazy-loaded feature components
+* Route guards
+* Role-based authorization at the routing layer
+* HTTP interceptors
+* Centralized API services
+* Environment-specific configuration
+* Reusable shared components
+* Reactive programming with RxJS
+* Responsive UI design
+* Dashboard visualization
+* PDF document generation
+* Form validation
+* Loading/skeleton states
+* Toast-based user feedback
+* Error/unauthorized handling
+* Inventory and audit tracking
+* Relational database design
+
+---
+
+# Security Considerations
+
+The project is structured with several security-oriented controls:
+
+* Session-based authentication
+* Secure HTTPS development configuration
+* Credentialed API requests
+* Authentication guards
+* Role-based route guards
+* Unauthorized-response interception
+* Separation of authentication state from UI role state
+* Server-side authorization dependency
+
+For production deployment, additional controls should be implemented according to the deployment environment and organizational security requirements, including:
+
+* HTTPS everywhere
+* Secure cookie configuration
+* CSRF protection where applicable
+* Strong password hashing
+* Secrets management
+* Production CORS configuration
+* Server-side authorization on every protected endpoint
+* Input validation
+* Rate limiting
+* Security headers
+* Centralized logging and monitoring
+* Backup and recovery policies
+* Data protection and healthcare privacy requirements
+
+---
+
+# Testing
+
+The project includes Angular's testing infrastructure and test dependencies:
+
+```text
+Jasmine
+Karma
+Angular testing utilities
+```
+
+Run tests with:
+
+```bash
+npm test
+```
+
+For a production-grade deployment, the test suite should be expanded to cover:
+
+* Authentication flows
+* Route guards
+* Role authorization
+* Service/API behavior
+* Form validation
+* Pharmacy inventory calculations
+* Billing calculations
+* Component interactions
+* Error handling
+* Critical end-to-end workflows
+
+---
+
+# Development Workflow
+
+A recommended development workflow is:
+
+```text
+1. Create feature branch
+        ↓
+2. Implement feature
+        ↓
+3. Add/update tests
+        ↓
+4. Run lint/build/tests
+        ↓
+5. Review changes
+        ↓
+6. Commit with meaningful message
+        ↓
+7. Open Pull Request
+        ↓
+8. Code review
+        ↓
+9. Merge
+```
+
+Example branch naming:
+
+```text
+feature/pharmacy-inventory
+feature/doctor-consultation
+feature/lab-results
+fix/session-authentication
+refactor/pharmacy-service
+```
+
+Example commit messages:
+
+```text
+feat: add pharmacy stock monitoring
+feat: implement doctor consultation workflow
+fix: handle unauthorized API responses
+refactor: centralize pharmacy API calls
+test: add medicine validation coverage
+docs: update local development setup
+```
+
+---
+
+# Screens & User Experience
+
+The application provides role-specific dashboards and navigation instead of exposing every feature to every user.
+
+This approach improves:
+
+* Usability
+* Information hierarchy
+* Security boundaries
+* Maintainability
+* Role-specific workflows
+
+Shared UI functionality includes reusable:
+
+* Header/navigation
+* Statistics cards
+* Toast notifications
+* Skeleton/loading states
+* Not-found page
+* Animations
+* Voice-search component
+
+---
+
+# Project Highlights
+
+### Modular Architecture
+
+Each business domain is isolated into its own feature area, making the application easier to extend without creating a monolithic component structure.
+
+### Role-Based Workflows
+
+Doctors, laboratory technicians, receptionists, and pharmacists receive different workflows and protected application routes.
+
+### Healthcare Workflow Coverage
+
+The system connects patient management, appointments, consultations, laboratory processing, pharmacy operations, and billing into a unified workflow.
+
+### Session-Based Security
+
+Authentication is handled through server-side sessions and credentialed HTTP requests rather than relying on client-side authentication state.
+
+### Data-Driven Dashboards
+
+Dashboard components provide operational summaries and visualizations for different roles.
+
+### Pharmacy Management
+
+The pharmacy module covers the complete medicine lifecycle from inventory management through prescription processing, dispensing, billing, reporting, and auditing.
+
+### Document Generation
+
+The application includes PDF generation capabilities for operational documents such as invoices and reports.
+
+---
+
+# Future Improvements
+
+Potential next steps for taking the project closer to enterprise production standards include:
+
+* Comprehensive unit and integration test coverage
+* End-to-end testing with Playwright or Cypress
+* Strongly typed API DTO models
+* Global error handling strategy
+* Centralized application state where appropriate
+* Accessibility improvements following WCAG guidelines
+* CI/CD pipeline
+* Docker-based development and deployment
+* Automated database migrations
+* API documentation with OpenAPI/Swagger
+* Structured application logging
+* Performance monitoring
+* Security scanning
+* Automated dependency updates
+* Production observability and monitoring
+* Containerized deployment
+* Cloud deployment configuration
+
+---
+
+# Repository Hygiene
+
+The repository should **not** contain:
+
+```text
+node_modules/
+dist/
+.angular/
+cache/
+environment secrets
+database passwords
+API keys
+private certificates
+real patient data
+production credentials
+```
+
+Use environment variables, deployment configuration, or a secure secrets manager for sensitive configuration.
+
+---
+
+# Portfolio / Engineering Context
+
+This project demonstrates practical experience building a multi-role business application rather than a single-page CRUD demonstration.
+
+It brings together:
+
+```text
+Frontend Architecture
+        +
+Authentication
+        +
+Authorization
+        +
+REST API Integration
+        +
+Relational Database Design
+        +
+Healthcare Workflows
+        +
+Reporting
+        +
+PDF Generation
+        +
+Inventory Management
+        +
+Billing
+        +
+Auditability
+```
+
+The project is particularly useful as a portfolio demonstration of **Angular application architecture, TypeScript development, API integration, role-based access control, database-driven application design, and enterprise-style feature organization**.
+
+---
+
+
+## Author
+
+Built as a full-stack healthcare management application demonstrating modern Angular development, modular frontend architecture, API integration, role-based workflows, and relational data management.
+
+---
+
+## ⭐ If You Find This Project Useful
+
+If this repository helped you understand Angular architecture, role-based applications, healthcare workflow design, or full-stack development, consider giving it a ⭐ on GitHub.
+
