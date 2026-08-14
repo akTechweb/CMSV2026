@@ -157,7 +157,7 @@ The Pharmacy module provides end-to-end medicine and pharmacy operations.
 
 ## Pharmacy Dashboard
 
-`<img src="docs/screenshots/pharmacy/01-dashboard.png" alt="Pharmacy Dashboard" width="100%">`{=html}
+`<img src="docs/screenshots/pharmacy/01-pharmacy-dashboard.png" alt="Pharmacy Dashboard" width="100%">`{=html}
 
 ## Medicine Catalogue
 
