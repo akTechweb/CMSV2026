@@ -48,62 +48,8 @@ The architecture emphasizes **separation of concerns, reusable components, secur
 
 # Core Modules
 
-## 1. Doctor Module
 
-The Doctor workspace provides tools for managing clinical activities.
-
-### Features
-
-* Doctor dashboard
-* Appointment management
-* Patient search
-* Consultation workflow
-* Patient/visit information
-* Laboratory request interaction
-* Consultation notes and follow-up information
-* Role-protected navigation
-
-### Routes
-
-```text
-/doctor/dashboard
-/doctor/appointments
-/doctor/consultation/:appointmentId
-/doctor/patient-search
-```
-
-<details open>
-<summary><strong>View all 8 Doctor screens</strong></summary>
-
-### 01 — Doctor Dashboard
-![Doctor Dashboard](docs/screenshots/doctor/01-dashboard.png)
-
-### 02 — Appointments Queue
-![Appointments Queue](docs/screenshots/doctor/02-appointments-queue.png)
-
-### 03 — Consultation: Patient Intake
-![Consultation Intake](docs/screenshots/doctor/03-consultation-intake.png)
-
-### 04 — Lab Tests & Prescription
-![Lab Tests and Prescription](docs/screenshots/doctor/04-lab-tests-prescription.png)
-
-### 05 — Consultation Summary
-![Consultation Summary](docs/screenshots/doctor/05-consultation-summary.png)
-
-### 06 — Downloadable Consultation Report
-![Consultation PDF](docs/screenshots/doctor/06-consultation-pdf.png)
-
-### 07 — Patient History Search
-![Patient History Search](docs/screenshots/doctor/07-patient-history-search.png)
-
-### 08 — Patient History & Lab Results
-![Patient History Lab Results](docs/screenshots/doctor/08-patient-history-lab-results.png)
-
-</details>
-
----
-
-## 2. Pharmacy Module
+## 1. Pharmacy Module
 
 The Pharmacy module provides end-to-end medicine and pharmacy operations.
 
@@ -216,7 +162,7 @@ status, expiry, low-stock, and dispensing reports with CSV export.
 
 ---
 
-## 3. Reception Module
+## 2. Reception Module
 
 The Reception module manages front-desk and patient-flow operations.
 
@@ -275,6 +221,62 @@ The Reception module manages front-desk and patient-flow operations.
 </details>
 
 ---
+
+## 3. Doctor Module
+
+The Doctor workspace provides tools for managing clinical activities.
+
+### Features
+
+* Doctor dashboard
+* Appointment management
+* Patient search
+* Consultation workflow
+* Patient/visit information
+* Laboratory request interaction
+* Consultation notes and follow-up information
+* Role-protected navigation
+
+### Routes
+
+```text
+/doctor/dashboard
+/doctor/appointments
+/doctor/consultation/:appointmentId
+/doctor/patient-search
+```
+
+<details open>
+<summary><strong>View all 8 Doctor screens</strong></summary>
+
+### 01 — Doctor Dashboard
+![Doctor Dashboard](docs/screenshots/doctor/01-dashboard.png)
+
+### 02 — Appointments Queue
+![Appointments Queue](docs/screenshots/doctor/02-appointments-queue.png)
+
+### 03 — Consultation: Patient Intake
+![Consultation Intake](docs/screenshots/doctor/03-consultation-intake.png)
+
+### 04 — Lab Tests & Prescription
+![Lab Tests and Prescription](docs/screenshots/doctor/04-lab-tests-prescription.png)
+
+### 05 — Consultation Summary
+![Consultation Summary](docs/screenshots/doctor/05-consultation-summary.png)
+
+### 06 — Downloadable Consultation Report
+![Consultation PDF](docs/screenshots/doctor/06-consultation-pdf.png)
+
+### 07 — Patient History Search
+![Patient History Search](docs/screenshots/doctor/07-patient-history-search.png)
+
+### 08 — Patient History & Lab Results
+![Patient History Lab Results](docs/screenshots/doctor/08-patient-history-lab-results.png)
+
+</details>
+
+---
+
 
 ## 4. Laboratory Module
 
